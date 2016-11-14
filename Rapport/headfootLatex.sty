@@ -1,0 +1,24 @@
+%% Informations générales
+\NeedsTeXFormat{LaTeX2e}[1999/01/01]
+\ProvidesPackage{headfootLatex}[2016/10/02 1.0]
+
+
+
+%% Calling the packages 
+\RequirePackage{fancyhdr} \pagestyle{fancy}
+\RequirePackage{lastpage}
+
+%% Changing the head and foot
+\cfoot{ \thepage{} }
+\rhead{ Master 2 AMS }
+\lhead{ Compte rendu de TP }
+\lfoot{ \textsc{ENSTA Paristech} }
+\rfoot{ \textsc{Université Paris-Saclay} }
+
+%% Line modification
+\renewcommand\headrulewidth{0.10pt}
+\renewcommand\footrulewidth{0.10pt}
+
+
+%% Fin du package
+\endinput
