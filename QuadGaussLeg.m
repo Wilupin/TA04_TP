@@ -1,30 +1,34 @@
 clear all; 
 
+
 % Assemblage de la matrice T
 L = 4; 
 
 T      = zeros(L,L);
 omega  = zeros(L,1);
-lambda = zeros(L,1); 
+theta = zeros(L,1); 
 
 for j = 1:(L-1)
     T(j,j+1) = j/sqrt(4*(j^2)-1);
     T(j+1,j) = T(j,j+1);
 end
 
+% On definit la matrice sparse
+T = sparse(T);
+
 
 % Calcul des valeurs propres et des vecteurs propres
-[EigVec, EigVal] = eig(T);
+[EigVec, EigVal] = eigs(T);
 
-lambda(:) = diag(EigVal);
-omega(:)  = 2*(EigVec(1,:)).^2;
-
+theta   = acos(diag(EigVal));
+lambda  = diag(EigVal);
+omega   = 2*(EigVec(1,:)).^2;
 
 
 % Comparaison avec les formules de la seance 1
 P = @(x) myFunction(x);
 
-myInt     = sum(P(omega(:)).*lambda(:));
+myInt     = sum(P(lambda(:)).*omega(:));
 matlabInt = integral(P,-1,1);
 myOldInt  = (1/3)*(P(-1)+P(1))+(4/3)*P(0);
 

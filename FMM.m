@@ -4,8 +4,7 @@ journal_plot_params;
 
 c = 3*10.0^8;
 
-
-Num_points = 40;
+Num_points = 60;
 
 for m = 1:Num_points
 
@@ -14,9 +13,7 @@ for m = 1:Num_points
     
     k = (2*pi*f)/c;
    
-    
     [coord, N(m)] = Maillage(nlambda,f);
-    
     
     % Difference selon x
     [a,b] = meshgrid(coord(:,1), coord(:,1));
@@ -88,11 +85,11 @@ set(hAx(2), 'FontSize', fsz);
 set(hAx(2), 'FontName', f_name);
 
 set(hAx,'xlim',[0,max(N(:))+10]);
-set(hAx(1),'ylim', [0, max(temps_1(:))*1.10]);
-set(hAx(2),'ylim', [0, max(temps_2(:))*1.20]);
+set(hAx(1),'ylim', [0, max(temps_1(2:end))*1.50]);
+set(hAx(2),'ylim', [0, max(temps_2(2:end))*1.10]);
 
-set(hAx(1),'YTick', linspace(0,max(temps_1(:))*1.10,5));
-set(hAx(2),'YTick', linspace(0,max(temps_2(:))*1.20,5));
+set(hAx(1),'YTick', linspace(0,max(temps_1(2:end))*1.50,5));
+set(hAx(2),'YTick', linspace(0,max(temps_2(2:end))*1.10,5));
 
 xlabel(h_axis,'$N$','Interpreter','LaTeX',...
     'FontSize',10);
@@ -135,11 +132,15 @@ set(h_t2, 'MarkerFaceColor', 'red')
 
 hold on
 
-loglog(N, (temps_1(Num_points)/(N(Num_points).^2))*N.^2, ':','Color', line_color_3)
+loglog(N, (temps_1(Num_points)/(N(Num_points).^2))*N.^2, '--','Color', line_color_3)
 loglog(N, (temps_2(Num_points)/(N(Num_points).^2))*N.^2,'--','Color', line_color_3)
 
 set(gca, 'xlim', [min(N)*(0.5), max(N)*1.50]);
 set(gca, 'ylim', [min(temps_1)*(0.5), max(temps_2)*5]);
+
+set(gca,'XTick', [10 100 1000]);
+set(gca,'YTick', [0.00001, 0.001, 0.1, 10]);
+
 
 journal_axis(gca, '$N$', '$\tau_a, \tau_c$')
 

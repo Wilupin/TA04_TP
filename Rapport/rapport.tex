@@ -59,9 +59,9 @@ Avec $s_a = \mathbb{E}(f n_\lambda L/c)+1$ et $s_b = \mathbb{E}(f n_\lambda l/c)
 
 \section*{Question 2}
 
-Notons, pour $i \in \bbrac{1,N}$, $\xv_i$ le vecteur position du point du nuage indicé $i$. Introduisons alors la matrice de la fonction de Green G que nous definissons par : 
+Notons, pour $i \in \bbrac{1,N}$, $\xv_i$ le vecteur position du point du nuage indicé $i$. Introduisons alors la matrice de la fonction de Green G que nous definissons par :
 
-\begin{equation}    
+\begin{equation}
 \forall (i,j) \in \bbrac{1,N}^{2} \quad G_{i,j} =
  \begin{cases}
    \frac{e^{ik\lb \xv_i - \xv_j \rb}}{\lb \xv_i - \xv_j \rb} & \text{si } i\neq j \\
@@ -72,7 +72,7 @@ Notons, pour $i \in \bbrac{1,N}$, $\xv_i$ le vecteur position du point du nuage 
 
 Nous notons $\tau_{a}$ le temps d'assemblage de cette matrice. Soit maintenant un vecteur $\rhov$ quelconque de $\R^{N}$. Nous notons $\tau_c$ le temps de calcul du produit matrice vecteur $\Vv = G\rhov$.\\
 
-Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l'assemblade de la matrice est trop gourmand en mémoire et cela rend l'execution sous Matlab impossible. Nous avons donc fait varier $n_\lambda$ à $f$ fixé pour avoir, d'après \refeq{N}, une valeur de $N$ maximale de .... Puis nous avons représenté en \refig{Q2a} et \refig{Q2b} l'évolution de $\tau_a$ et $\tau_c$ en fonction de $N$.
+Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l'assemblade de la matrice est trop gourmand en mémoire et cela rend l'execution sous Matlab impossible. Nous avons donc fait varier $n_\lambda$ à $f$ fixé pour avoir, d'après \refeq{N}, une valeur de $N$ maximale de 9002. Puis nous avons représenté en \refig{Q2a} et \refig{Q2b} l'évolution de $\tau_a$ et $\tau_c$ en fonction de $N$.
 
 
 
