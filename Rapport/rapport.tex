@@ -121,16 +121,16 @@ Nous avons calculé la quadrature de Gauss-Legendre à L points en diagonsalisan
 Ceci est équivalent, par un changement de variable, à
 
 \begin{equation}
-	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L}{\omega_i P(\theta_i)}
+	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L}{\omega_i P(\cos(\theta_i)}
 \end{equation}
 
-Nous avons testé cette quadrature avec L = 3 en comparaison de celle à 3 points dévleoppée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la qudrature effectuée par Matlab et $I_v$ la valeur vraie pour l'integration de la fonction $f$.
+Nous avons testé cette quadrature avec $L = 3$ en comparaison de celle à 3 points dévleoppée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la qudrature effectuée par Matlab et $I_v$ la valeur vraie pour l'integration de la fonction polynomiale $P$.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{m{2cm} |m{1cm} m{1cm} m{1cm} m{1cm}} 
    \hline
-    \centering $f$ & $I_{GL}$ & $I_{1}$ & $I_{M}$ & $I_v$ \\
+    \centering $P$ & $I_{GL}$ & $I_{1}$ & $I_{M}$ & $I_v$ \\
     \toprule
     \toprule
     $x \mapsto x$      & 0.00 & 0.00 & 0.00 & 0 \\
@@ -141,7 +141,7 @@ Nous avons testé cette quadrature avec L = 3 en comparaison de celle à 3 point
 \caption{Résultat des quadratures numériques}
 \end{table}
 
-Comme attendu nous observons que pour la quadrature de Gauss-Legendre donne les même resultats pour des polynômes de degré inférieur ou égal à 3 que la quadrature du premier TP. En revanche, comme nous pouvions nous y attendre ici nous avons une solution correcte pour des polynomes de degré 4 et même 5. 
+Comme attendu nous observons que pour la quadrature de Gauss-Legendre donne les même resultats pour des polynômes de degré inférieur ou égal à 3 que la quadrature du premier TP. En revanche, comme nous pouvions nous y attendre cette nouvelle quadrature nous permet d'avoir une solution correcte pour des polynomes de degré 4 et 5, puisque la formule est bien exacte jusqu'au degé $2L-1$.
 
 
 \vspace*{12pt}
@@ -180,6 +180,34 @@ En particulier, la quadrature de l'integrale sur $\phi$ doit vérifier :
 		2\pi & \text{ si } m = 0 \\
 	\end{cases}
 \end{equation}
+
+
+
+\vspace*{22pt}
+
+\section*{Question 5}
+
+Nous souhaitons calculer la décomposition en onde plane de la fonction de green G. Posons $\xv - \yv = (\yv_0 - \yv) + (\xv_0 - \yv_0) - (\xv_0 - \xv) = \rv + \rv_0$. Nous utilisons les formules 
+
+\begin{equation}
+	\frac{\exp(ik|\xv-\yv|)}{|\xv-\yv|} \simeq \int_{S^{2}}{e^{ik\svh(\yv-\yv_0)}\Gc_Le^{-ik\svh(\xv-\xv_0)}d\svh}
+\end{equation}
+
+Avec, 
+
+\begin{equation}
+\Gc_L = \frac{ik}{4\pi}\sum_{p=0}^{L}{(2p+1)i^{p}h_p^{(1)}(k|\rv_0|)P_p(\cos(\svh, \rv_0))}
+\end{equation}
+\begin{equation}
+\cos(\svh, \rv_0) = \frac{1}{|\rv_0|}< \begin{pmatrix} \sin(\theta)\cos(\phi)  \\ \sin(\theta)\sin(\phi)  \\ \cos(\theta) \end{pmatrix} , \rv_0 >
+\end{equation}
+
+
+L'intégrale sur la sphére unité est alors calculée par la quadrature déterminée dans la question précédente. 
+
+
+
+
 
 \end{multicols}
 
