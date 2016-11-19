@@ -6,7 +6,15 @@
 \usepackage{headfootLatex}
 \usepackage{shortcutLatex}
 \usepackage{envLatex}
+\usepackage{booktabs}
 \graphicspath{{logos/}{figures/}}
+
+
+\makeatletter
+\def\hlinewd#1{%
+\noalign{\ifnum0=`}\fi\hrule \@height #1 %
+\futurelet\reserved@a\@xhline}
+\makeatother
 
 
 \begin{document}
@@ -65,7 +73,7 @@ Notons, pour $i \in \bbrac{1,N}$, $\xv_i$ le vecteur position du point du nuage 
 \forall (i,j) \in \bbrac{1,N}^{2} \quad G_{i,j} =
  \begin{cases}
    \frac{e^{ik\lb \xv_i - \xv_j \rb}}{\lb \xv_i - \xv_j \rb} & \text{si } i\neq j \\
-   1 & \text{si } i=j
+   0 & \text{si } i=j
  \end{cases}
 \end{equation}
 
@@ -78,9 +86,9 @@ Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l'assemblade de la matric
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.95\columnwidth]{Q2a_2.pdf}
+  \includegraphics[width=0.95\columnwidth]{Q2a_4.pdf}
   \vspace*{-11pt}
-  \caption{Temps d'assemblage de $G$, $\tau_a$ (rouge) et temps de calcul du produit matrice vecteurs $\tau_c$ (bleu) en fonction de $N$. Les deux courbes ont une allure parabolique mais nous pouvons remarquer que, les echelles étant différentes, le temps d'assemblage est plus long}
+  \caption{Temps d'assemblage de $G$, $\tau_a$ (losanges rouge) et temps de calcul du produit matrice vecteurs $\tau_c$ (ronds bleu) en fonction de $N$. Les deux courbes ont une allure parabolique mais nous pouvons remarquer que, les echelles étant différentes, le temps d'assemblage est plus long}
   \label{fig:Q2a}
   \end{center}
 \end{figure}
@@ -88,9 +96,9 @@ Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l'assemblade de la matric
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.95\columnwidth]{Q2b_2.pdf}
+  \includegraphics[width=0.95\columnwidth]{Q2b_4.pdf}
   \vspace*{-11pt}
-  \caption{Temps d'assemblage de $G$, $\tau_a$ (rouge) et temps de calcul du produit matrice vecteurs $\tau_c$  (bleu) en fonction de $N$. Nous pouvons remarquer ici qu'asymptotiquement $\log(\tau_{a/c}) \simeq 2\log(N)+K_{a/c}$ représentées en pointillé vert avec $K_{a/c}$ constante.}
+  \caption{Temps d'assemblage de $G$, $\tau_a$ (losanges rouge) et temps de calcul du produit matrice vecteurs $\tau_c$  (ronds bleu) en fonction de $N$. Nous pouvons remarquer ici qu'asymptotiquement $\log(\tau_{a/c}) \simeq 2\log(N)+K_{a/c}$ représentées en pointillé vert avec $K_{a/c}$ constante.}
   \label{fig:Q2b} 
   \end{center}
 \end{figure}
@@ -104,7 +112,74 @@ Comme il l'est montré en \refig{Q2b}, l'évolution du logarithme de $\tau_a$ av
 
 \section*{Question 3}
 
-Nous avons calculé la quadrature de Gauss-Legendre à L points en diagonsalisant la matrice tridiagonale définie dans l'énoncé. 
+Nous avons calculé la quadrature de Gauss-Legendre à L points en diagonsalisant la matrice tridiagonale définie dans l'énoncé. La methode utiliséé pour obtenir les points de quadrature est la méthode de Golub-Welsh\footnote{\textit{Calculation of Gauss Quadrature Rules}, G.H. Golub and J.H. Welsh \color{cyan}, Math. Comp. 23 (1969), 221-230 \color{black}, (Apr., 1969)}. Avec les notations du TP nous calculons, pour P polynôme tel que $\text{deg}P \le 2L-1$,
+
+\begin{equation}
+	\int_{-1}^{1}{P(t)dt} = \sum_{i=1}^{L}{\omega_i P(\lambda_i)}
+\end{equation}
+
+Ceci est équivalent, par un changement de variable, à
+
+\begin{equation}
+	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L}{\omega_i P(\theta_i)}
+\end{equation}
+
+Nous avons testé cette quadrature avec L = 3 en comparaison de celle à 3 points dévleoppée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la qudrature effectuée par Matlab et $I_v$ la valeur vraie pour l'integration de la fonction $f$.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{m{2cm} |m{1cm} m{1cm} m{1cm} m{1cm}} 
+   \hline
+    \centering $f$ & $I_{GL}$ & $I_{1}$ & $I_{M}$ & $I_v$ \\
+    \toprule
+    \toprule
+    $x \mapsto x$      & 0.00 & 0.00 & 0.00 & 0 \\
+    $x \mapsto x^{2}$  & 0.667 & 0.667 & 0.667 & 2/3 \\
+    $x \mapsto x^{4}$  & 0.400 & 0.667 & 0.400 & 2/5 \\
+    \hline
+\end{tabular}
+\caption{Résultat des quadratures numériques}
+\end{table}
+
+Comme attendu nous observons que pour la quadrature de Gauss-Legendre donne les même resultats pour des polynômes de degré inférieur ou égal à 3 que la quadrature du premier TP. En revanche, comme nous pouvions nous y attendre ici nous avons une solution correcte pour des polynomes de degré 4 et même 5. 
+
+
+\vspace*{12pt}
+
+\section*{Question 4}
+
+Notons 
+\begin{equation}
+	C_{l,m} = \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}
+\end{equation}
+
+Nous avons, par définition, 
+\begin{equation}
+Y_{lm}(\theta, \phi) = C_{l,m}P_l^{m}\(\cos(\theta)\)e^{im\phi}
+\end{equation}
+
+En notant $I$ l'intégrale de $Y_{lm}$ sur la sphère unité, 
+\begin{equation}
+I = C_{l,m}\int_{0}^{\pi}{P_l^{m}\(\cos(\theta)\)\sin(\theta)d\theta}\int_{0}^{2\pi}e^{im\phi}d\phi
+\end{equation}
+
+Ainsi si $m \neq 0$ l'integrale sur $\phi$ donne directement $I = 0$.  De plus, d'après d'autres propriétés des polynomes de Legendre, la quadrature totale doit alors satisfaire les égalités suivantes :
+\begin{equation}
+\sum_{i,j}{\omega_i \omega_j Y_{lm}(\theta_j, \phi_i)} = 
+	\begin{cases}
+		0 & \text{ si } m \neq 0 \text{ et } l \neq 0 \\
+		\sqrt{4\pi} & \text{ si } m = 0 \text{ ou } l = 0
+	\end{cases}
+\end{equation}
+
+En particulier, la quadrature de l'integrale sur $\phi$ doit vérifier : 
+\begin{equation}
+	\sum_{i}{\omega_i e^{im\phi_i}} = 
+	\begin{cases}
+		0 & \text{ si } m \neq 0 \\
+		2\pi & \text{ si } m = 0 \\
+	\end{cases}
+\end{equation}
 
 \end{multicols}
 

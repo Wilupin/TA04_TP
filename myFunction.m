@@ -1,6 +1,6 @@
 function f = myFunction(x)
 
-    f = x.^6+x.^7;
+    f = x.^4;
     
 end
 

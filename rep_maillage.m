@@ -10,6 +10,7 @@ f = 3*10.0^8;
 k = (2*pi*f)/c;
 
 [coord, N] = Maillage(nlambda,f);
+refNodes = buildOctree(coord,N,lambda);
 
 
 h_fig = setFigure('ScatterPlot');

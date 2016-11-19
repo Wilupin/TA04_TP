@@ -2,7 +2,7 @@ clear all;
 
 
 % Assemblage de la matrice T
-L = 4; 
+L = 3; 
 
 T      = zeros(L,L);
 omega  = zeros(L,1);

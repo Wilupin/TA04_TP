@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  14 NOV 2016 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  16 NOV 2016 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1069,32 +1069,52 @@ Package: amsthm 2015/03/04 v2.20.2
 \c@corol=\count175
 \c@definition=\count176
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen195
+\lightrulewidth=\dimen196
+\cmidrulewidth=\dimen197
+\belowrulesep=\dimen198
+\belowbottomsep=\dimen199
+\aboverulesep=\dimen200
+\abovetopsep=\dimen201
+\cmidrulesep=\dimen202
+\cmidrulekern=\dimen203
+\defaultaddspace=\dimen204
+\@cmidla=\count177
+\@cmidlb=\count178
+\@aboverulesep=\dimen205
+\@belowrulesep=\dimen206
+\@thisruleclass=\count179
+\@lastruleclass=\count180
+\@thisrulewidth=\dimen207
+)
 (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 20.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Info: Redefining \degres on input line 12.
-LaTeX Info: Redefining \dots on input line 12.
-LaTeX Info: Redefining \up on input line 12.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Info: Redefining \degres on input line 20.
+LaTeX Info: Redefining \dots on input line 20.
+LaTeX Info: Redefining \up on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1132,16 +1152,16 @@ LaTeX Info: Redefining \up on input line 12.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count177
-\scratchdimen=\dimen195
+\scratchcounter=\count181
+\scratchdimen=\dimen208
 \scratchbox=\box80
-\nofMPsegments=\count178
-\nofMParguments=\count179
+\nofMPsegments=\count182
+\nofMParguments=\count183
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count180
-\MPscratchDim=\dimen196
-\MPnumerator=\count181
-\makeMPintoPDFobject=\count182
+\MPscratchCnt=\count184
+\MPscratchDim=\dimen209
+\MPnumerator=\count185
+\makeMPintoPDFobject=\count186
 \everyMPtoPDFconversion=\toks41
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1163,7 +1183,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box81
-Package hyperref Info: Link coloring ON on input line 12.
+Package hyperref Info: Link coloring ON on input line 20.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1171,95 +1191,92 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count183
+\c@section@level=\count187
 )
-LaTeX Info: Redefining \ref on input line 12.
-LaTeX Info: Redefining \pageref on input line 12.
-LaTeX Info: Redefining \nameref on input line 12.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
 
 (./rapport.out) (./rapport.out)
 \@outlinefile=\write3
 \openout3 = `rapport.out'.
 
-\c@lstlisting=\count184
+\c@lstlisting=\count188
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 12.
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 35.
+(lastpage)             ! on input line 20.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 43.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 35.
+LaTeX Font Info:    Try loading font information for U+msa on input line 43.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 35.
+LaTeX Font Info:    Try loading font information for U+msb on input line 43.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 35.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 43.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 <figures/Q1_4.pdf, id=5, 244.915pt x 154.5775pt>
 File: figures/Q1_4.pdf Graphic file (type pdf)
  <use figures/Q1_4.pdf>
-Package pdftex.def Info: figures/Q1_4.pdf used on input line 47.
+Package pdftex.def Info: figures/Q1_4.pdf used on input line 55.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 73.
+(Font)              using `U/stmry/m/n' instead on input line 81.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-<figures/Q2a_2.pdf, id=9, 244.915pt x 154.5775pt>
-File: figures/Q2a_2.pdf Graphic file (type pdf)
- <use figures/Q2a_2.pdf>
-Package pdftex.def Info: figures/Q2a_2.pdf used on input line 81.
+<figures/Q2a_4.pdf, id=9, 244.915pt x 154.5775pt>
+File: figures/Q2a_4.pdf Graphic file (type pdf)
+ <use figures/Q2a_4.pdf>
+Package pdftex.def Info: figures/Q2a_4.pdf used on input line 89.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
-<figures/Q2b_2.pdf, id=10, 244.915pt x 154.5775pt>
-File: figures/Q2b_2.pdf Graphic file (type pdf)
- <use figures/Q2b_2.pdf>
-Package pdftex.def Info: figures/Q2b_2.pdf used on input line 91.
+<figures/Q2b_4.pdf, id=10, 244.915pt x 154.5775pt>
+File: figures/Q2b_4.pdf Graphic file (type pdf)
+ <use figures/Q2b_4.pdf>
+Package pdftex.def Info: figures/Q2b_4.pdf used on input line 99.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./figures/Q1_4.pdf> <./figures/Q2a_2.pdf> <./figures/Q2b_2.pdf>]
+ <./figures/Q1_4.pdf> <./figures/Q2a_4.pdf> <./figures/Q2b_4.pdf>]
 
 AED: lastpage setting LastPage
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 189.
  ) 
 Here is how much of TeX's memory you used:
- 18728 strings out of 493089
- 312270 string characters out of 6134841
- 500650 words of memory out of 5000000
- 21928 multiletter control sequences out of 15000+600000
- 22839 words of font info for 68 fonts, out of 8000000 for 9000
+ 18801 strings out of 493089
+ 313221 string characters out of 6134841
+ 517478 words of memory out of 5000000
+ 21986 multiletter control sequences out of 15000+600000
+ 23525 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,11n,45p,10515b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,13n,45p,10515b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></u
@@ -1282,16 +1299,18 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf
 exmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/public/cm-super/sfcc0800.pfb></usr/local/texlive/2015/texmf
 -dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/stmaryrd/stmary10.pfb>
-Output written on rapport.pdf (2 pages, 353855 bytes).
+ist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/cm-super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/stmaryrd/stmary10.pfb>
+Output written on rapport.pdf (2 pages, 391176 bytes).
 PDF statistics:
- 624 PDF objects out of 1000 (max. 8388607)
- 566 compressed objects within 6 object streams
- 11 named destinations out of 1000 (max. 500000)
+ 618 PDF objects out of 1000 (max. 8388607)
+ 569 compressed objects within 6 object streams
+ 21 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
