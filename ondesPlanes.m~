@@ -2,11 +2,9 @@ function G_res = ondesPlanes(x,y,x0,y0,k)
 
 % x et y sont des vecteurs
 r0 = x0 - y0;
-normR0 = sqrt(r0*r0');
-
 
 % Assemblage de la matrice T
-L = 10;
+L = 4;
 %L = floor(sqrt(3)*k*0.15 + 10*log(sqrt(3)*k*0.15+pi))+1;
 T = zeros(L+1,L+1);
 
@@ -29,6 +27,8 @@ omega_phi     = 2*pi/(2*L+1);
 phi(end) = [];
 
 
+normR0 = sqrt(r0*r0');
+
 G_res = 0;
 
 
@@ -36,19 +36,26 @@ for j=1:L+1
     
     G = 0;
     
-    s = [sin(theta(j))*cos(phi(:)).';  ...
-        sin(theta(j))*sin(phi(:)).' ; ...
-        cos(theta(j))*ones(2*L+1,1).'];
+    phi(:)
+    
+    s = [sin(theta(j))*cos(phi(:)).';  sin(theta(j))*sin(phi(:)).' ; cos(theta(j))*ones(2*L+1,1).'];
     
     for p=0:L
         G = G + (2*p+1)*(1i^p)*hankel(p,k*normR0)*legendreP(p, (s(1,:)*r0(1) +...
             s(2,:)*r0(2) + s(3,:)*r0(3))./normR0);
     end
     
-    G = G.*(1i*k/(4*pi));
+    G = (1i*k/(4*pi)).*G;
    
-    G = G.*exp(-1i*k*(s(1,:)*(y(1)-y0(1)) + s(2,:)*(y(2)-y0(2)) + s(3,:)*(y(3)-y0(3))));  
-    G = G.*exp(+1i*k*(s(1,:)*(x(1)-x0(1)) + s(2,:)*(x(2)-x0(2)) + s(3,:)*(x(3)-x0(3))));
+    
+    G = G.*exp(1i*k*(sin(theta(j))*cos(phi(:)).*(y(1)-y0(1)) + ...
+        sin(theta(j)).*sin(phi(:))*(y(2)-y0(2)) + ...
+        cos(theta(j))*(y(3)-y0(3))));
+    
+    
+    G = G.*exp(-1i*k*(s(1,:)*(x(1)-x0(1)) + ...
+        s(2,:)*(x(2)-x0(2)) + ...
+        cos(theta(j))*(x(3)-x0(3))));
     
     G_res = G_res + sum(G(:))*omega(j);
 

@@ -121,7 +121,7 @@ Nous avons calculé la quadrature de Gauss-Legendre à L points en diagonsalisan
 Ceci est équivalent, par un changement de variable, à
 
 \begin{equation}
-	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L}{\omega_i P(\cos(\theta_i)}
+	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L}{\omega_i P(\cos(\theta_i))}
 \end{equation}
 
 Nous avons testé cette quadrature avec $L = 3$ en comparaison de celle à 3 points dévleoppée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la qudrature effectuée par Matlab et $I_v$ la valeur vraie pour l'integration de la fonction polynomiale $P$.
@@ -172,7 +172,7 @@ Ainsi si $m \neq 0$ l'integrale sur $\phi$ donne directement $I = 0$.  De plus, 
 	\end{cases}
 \end{equation}
 
-En particulier, la quadrature de l'integrale sur $\phi$ doit vérifier : 
+En particulier, la quadrature sur $\phi$ doit vérifier : 
 \begin{equation}
 	\sum_{i}{\omega_i e^{im\phi_i}} = 
 	\begin{cases}
@@ -181,19 +181,21 @@ En particulier, la quadrature de l'integrale sur $\phi$ doit vérifier :
 	\end{cases}
 \end{equation}
 
-
+L'avantage de cette quadrature ...
 
 \vspace*{22pt}
 
 \section*{Question 5}
 
+\subsection*{Mise en pratique}
+
 Nous souhaitons calculer la décomposition en onde plane de la fonction de green G. Posons $\xv - \yv = (\yv_0 - \yv) + (\xv_0 - \yv_0) - (\xv_0 - \xv) = \rv + \rv_0$. Nous utilisons les formules 
 
 \begin{equation}
-	\frac{\exp(ik|\xv-\yv|)}{|\xv-\yv|} \simeq \int_{S^{2}}{e^{ik\svh(\yv-\yv_0)}\Gc_Le^{-ik\svh(\xv-\xv_0)}d\svh}
+	G(\xv, \yv) = \frac{\exp(ik|\xv-\yv|)}{|\xv-\yv|} \simeq \int_{S^{2}}{e^{ik\svh\rv}\Gc_Ld\svh}
 \end{equation}
 
-Avec, 
+\vspace*{-22pt}
 
 \begin{equation}
 \Gc_L = \frac{ik}{4\pi}\sum_{p=0}^{L}{(2p+1)i^{p}h_p^{(1)}(k|\rv_0|)P_p(\cos(\svh, \rv_0))}
@@ -203,10 +205,45 @@ Avec,
 \end{equation}
 
 
-L'intégrale sur la sphére unité est alors calculée par la quadrature déterminée dans la question précédente. 
+L'intégrale sur la sphére unité est alors calculée par la quadrature à $(2L+1)(L+1)$ points déterminée dans la question précédente. Attention cependant car il ne faut pas prendre les fonctions de Hankel \textit{besselh} telles que définies sous Matlab car cela ne donne pas les bons résultats. En effet nous devons utiliser pour nos formules, pour $(z,p) \in \R^{*}_{+}\times\N$ 
+
+\begin{equation}
+	h^{(1)}_{p}(z) = e^{iz}\sum_{k=0}^{p}{\frac{(p+k)!}{2^{k}(p-k)!}\frac{1}{z^{k+1}}}
+\end{equation}
+
+Pour être plus rapide dans le code ces fonctions sont en réalité calculées à l'aide de la formule de récurrence 
+
+\begin{equation}
+	h_{p+1}^{(1)}(z) =  \frac{2p+1}{z}h_{p}^{(1)}(z) - h_{p-1}^{(1)}(z) 
+\end{equation}
+
+
+\vspace*{10pt}
+
+
+\subsection*{Un exemple de cas test}
+
+Pour tester nos codes nous avons utilisé le cas test $\rv = 0$ et $\rv_0 = \xv - \yv$. En effet dans ce cas nous pouvons écrire
+
+\begin{equation}
+G(\xv,\yv) = {\sum_{p=0}^{L}{\frac{(2p+1)k}{4\pi}i^{p+1}h_p^{(1)}(k|\rv_0|)\int_{S^{2}}P_p(\cos(\svh, \rv_0))}d\svh}
+\end{equation}
+
+Cependant pour $p\in\bbrac{0,L}$ comme notre quadrature intègre exactement les polynomes de degrés inférieur ou égal à $2L+1$ et d'après l'ortogonalité des polynômes de Legendre, il vient, 
+
+\begin{equation}
+G(\xv,\yv) = ikh^{(1)}_{p}(k|\rv_0|)
+\end{equation}
+
+Ceci nous permet alors de confirmer le choix des fonctions de Hankel et le bon fonctionnement de la quadrature sur les polynômes de Legendre.
 
 
 
+\vspace*{10pt}
+
+\subsection*{Resultats}
+
+Nous avons donc un code qui fonctionne bien sur le cas test précédemment. De plus ... 
 
 
 \end{multicols}

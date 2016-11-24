@@ -2,7 +2,7 @@ function Res_int = intHarm(l,m)
 
 % Assemblage de la matrice T
 L = 4;
-T      = zeros(L+1,L+1);
+T      = sparse(L+1,L+1);
 
 
 for j = 1:L
@@ -10,12 +10,10 @@ for j = 1:L
     T(j+1,j) = T(j,j+1);
 end
 
-% On definit la matrice sparse
-T = sparse(T);
 
 
 % Calcul des valeurs propres et des vecteurs propres
-[EigVec, EigVal] = eigs(T);
+[EigVec, EigVal] = eigs(T,L+1);
 
 lambda        = diag(EigVal);
 omega         = 2*(EigVec(1,:)).^2;
