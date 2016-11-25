@@ -1,12 +1,18 @@
 function h = hankel( n, z )
 
-h = zeros(1,max(size(z)));
+h = zeros(n,max(size(z)));
 
-for p=0:n
-    h = h + (1i^(p-n-1))*(factorial(p+n)/(factorial(p)*factorial(n-p)*(2^p)))./(z.^(p+1));
+h(1) = exp(1i*z)./(1i*z);
+h(2) = 0;
+
+for p=0:1
+    h(2,:) = h(2,:) + exp(1i*z(:)).*(1i^(p-n-1))*(factorial(p+n)/(factorial(p)*factorial(n-p)*(2^p)))./(z(:).^(p+1));
 end
 
-h = h.*exp(1i*z);
+for p=2:n
+    h(p+1,:) = ((2*(p-1)+1)./z)*h(p,:) - h(p-1,:);
+end
+
 
 end
 

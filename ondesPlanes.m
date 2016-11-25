@@ -6,7 +6,7 @@ normR0 = sqrt(r0*r0');
 
 
 % Assemblage de la matrice T
-L = 10;
+L = 4;
 %L = floor(sqrt(3)*k*0.15 + 10*log(sqrt(3)*k*0.15+pi))+1;
 T = zeros(L+1,L+1);
 
@@ -31,6 +31,7 @@ phi(end) = [];
 
 G_res = 0;
 
+hank = hankel(L,k*normR0);
 
 for j=1:L+1
     
@@ -41,7 +42,7 @@ for j=1:L+1
         cos(theta(j))*ones(2*L+1,1).'];
     
     for p=0:L
-        G = G + (2*p+1)*(1i^p)*hankel(p,k*normR0)*legendreP(p, (s(1,:)*r0(1) +...
+        G = G + (2*p+1)*(1i^p)*hank(p+1)*legendreP(p, (s(1,:)*r0(1) +...
             s(2,:)*r0(2) + s(3,:)*r0(3))./normR0);
     end
     
