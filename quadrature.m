@@ -9,12 +9,11 @@ for jj = 1:L
 end
 
 
-
 % Calcul des valeurs propres et des vecteurs propres
 [EigVec, EigVal] = eig(T);
 
 
-theta         = acos(diag(EigVal));
+theta         = acos(diag(EigVal)).';
 omega_theta   = 2*(EigVec(1,:)).^2;
 
 phi           = linspace(0,2*pi,2*L+2);

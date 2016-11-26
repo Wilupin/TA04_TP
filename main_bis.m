@@ -38,25 +38,14 @@ for q=1:N
     q1 = partition.label_box(q);
     G = 0; 
     for p=1:partition.nb_part_nv
-        if(partition.liste_voisins(q1,p) == 0)
-            for j=1:partition.size_box(p)
-                tic
-                G = G + green_approx(coord(q,:), coord(partition.points_box(p,j),:),...
-                    partition.coords_box(q1,:),partition.coords_box(p,:), ...
-                    k,theta, omega_theta, phi, omega_phi,L)*rho(partition.points_box(p,j));
-                toc
-                %disp(['Partition :',num2str(p), ' Point : ', num2str(partition.points_box(p,j)), ...
-                %    ' Valeur de G1 : ', num2str(G1)])
-            end           
-        else 
+        G = G + green_approx_bis(coord, partition, q1, q, rho, k,theta,omega_theta, phi,omega_phi,L);
+       if(partition.liste_voisins(q1,p) == 0)
             for j=1:partition.size_box(p)
                 if (q ~= partition.points_box(p,j))
                     x = coord(q,:);
                     y = coord(partition.points_box(p,j),:);
                     normXY = sqrt((x-y)*(x-y)');
                     G = G + (exp(1i*k*normXY)/normXY)*rho(partition.points_box(p,j));
-                    % disp(['Partition :',num2str(p), ' Point : ', num2str(partition.points_box(p,j)), ...
-                    %' Valeur de G : ', num2str(G), ])
                 end
             end
         end
