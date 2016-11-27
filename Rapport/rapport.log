@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  24 NOV 2016 19:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  27 NOV 2016 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1253,35 +1253,35 @@ Package pdftex.def Info: figures/Q2b_4.pdf used on input line 99.
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./figures/Q1_4.pdf> <./figures/Q2a_4.pdf> <./figures/Q2b_4.pdf>]
-Overfull \hbox (3.12926pt too wide) detected at line 230
-[]\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x\OML/cmm/m/it/10 ; \OT1/
-cmr/bx/n/10 y\OT1/cmr/m/n/10 ) = []
- []
+
+Package multicol Warning: I moved some lines to the next page.
+(multicol)                Footnotes on page 2 might be wrong on input line 251.
+
 
 [2] 
 AED: lastpage setting LastPage
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 314.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 254.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 314.
  ) 
 Here is how much of TeX's memory you used:
- 18818 strings out of 493089
- 313406 string characters out of 6134841
- 507490 words of memory out of 5000000
+ 18821 strings out of 493089
+ 313446 string characters out of 6134841
+ 510490 words of memory out of 5000000
  21989 multiletter control sequences out of 15000+600000
  25065 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,13n,45p,10515b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,17n,45p,10515b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></u
@@ -1314,10 +1314,10 @@ e1/public/cm-super/sfti0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/cm-super/sfti0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
 ublic/cm-super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
 lic/stmaryrd/stmary10.pfb>
-Output written on rapport.pdf (3 pages, 425272 bytes).
+Output written on rapport.pdf (3 pages, 431666 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 591 compressed objects within 6 object streams
- 33 named destinations out of 1000 (max. 500000)
+ 646 PDF objects out of 1000 (max. 8388607)
+ 594 compressed objects within 6 object streams
+ 36 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

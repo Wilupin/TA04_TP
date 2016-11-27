@@ -185,9 +185,18 @@ L'avantage de cette quadrature ...
 
 \vspace*{22pt}
 
+
+
+
+
+
+
+
+
+
 \section*{Question 5}
 
-\subsection*{Mise en pratique}
+\subsection*{1. Mise en pratique}
 
 Nous souhaitons calculer la décomposition en onde plane de la fonction de green G. Posons $\xv - \yv = (\yv_0 - \yv) + (\xv_0 - \yv_0) - (\xv_0 - \xv) = \rv + \rv_0$. Nous utilisons les formules 
 
@@ -195,60 +204,111 @@ Nous souhaitons calculer la décomposition en onde plane de la fonction de green
 	G(\xv, \yv) = \frac{\exp(ik|\xv-\yv|)}{|\xv-\yv|} \simeq \int_{S^{2}}{e^{ik\svh\rv}\Gc_Ld\svh}
 \end{equation}
 
-\vspace*{-22pt}
+\vspace*{-11pt}
 
 \begin{equation}
 \Gc_L = \frac{ik}{4\pi}\sum_{p=0}^{L}{(2p+1)i^{p}h_p^{(1)}(k|\rv_0|)P_p(\cos(\svh, \rv_0))}
 \end{equation}
+
+\vspace*{-11pt}
+
 \begin{equation}
 \cos(\svh, \rv_0) = \frac{1}{|\rv_0|}< \begin{pmatrix} \sin(\theta)\cos(\phi)  \\ \sin(\theta)\sin(\phi)  \\ \cos(\theta) \end{pmatrix} , \rv_0 >
 \end{equation}
 
 
-L'intégrale sur la sphére unité est alors calculée par la quadrature à $(2L+1)(L+1)$ points déterminée dans la question précédente. Attention cependant car il ne faut pas prendre les fonctions de Hankel \textit{besselh} telles que définies sous Matlab car cela ne donne pas les bons résultats. En effet nous devons utiliser pour nos formules, pour $(z,p) \in \R^{*}_{+}\times\N$ 
+L'intégrale sur la sphére unité est alors calculée par la quadrature à $(2L+1)(L+1)$ points déterminée dans la question précédente. Il faut être prudent et utiliser ici les fonctions de hankel sphériques et non celles définies sous Matlab avec la denomination \textit{besselh}. Ces fonctions sont définies par, pour $(z,p) \in \R^{*}_{+}\times\N$,
 
 \begin{equation}
 	h^{(1)}_{p}(z) = e^{iz}\sum_{k=0}^{p}{\frac{(p+k)!}{2^{k}(p-k)!}\frac{1}{z^{k+1}}}
 \end{equation}
 
-Pour être plus rapide dans le code ces fonctions sont en réalité calculées à l'aide de la formule de récurrence 
+Pour être plus rapide dans le code ces fonctions sont en réalité calculées à l'aide de la formule de récurrence suivante. Ceci esr pratique puisque nous avons besoin de toutes les fonctions de hankel jusuqu'à l'ordre $L$.
 
 \begin{equation}
 	h_{p+1}^{(1)}(z) =  \frac{2p+1}{z}h_{p}^{(1)}(z) - h_{p-1}^{(1)}(z) 
 \end{equation}
 
+De même, par souci de rapidité, nous n'utilisons pas non plus la fonction \textit{legendreP} de Matlab pour récupérer la valeur des polynômes de Legendre. Nous procédons aussi avec la formule de récurrence, pour  $(x,p) \in \R\times\N$,: 
+
+\begin{equation}
+	P_{p+1}(x) =  \frac{2p+1}{p+1}xP_{p}(x) - \frac{p}{p+1}P_{p-1}(x) 
+\end{equation}
+
+
+Enfin nous noterons aussi que pour réaliser des calculs rapides en vectorialisant au maximum les opérations effectuées nous avons beacoup utilisé la fonction \textit{bsxfun(@times, ..., ...)} de Matlab.
+
+
+
+
 
 \vspace*{10pt}
 
 
-\subsection*{Un exemple de cas test}
+\subsection*{2. Un exemple de cas test}
 
 Pour tester nos codes nous avons utilisé le cas test $\rv = 0$ et $\rv_0 = \xv - \yv$. En effet dans ce cas nous pouvons écrire
 
 \begin{equation}
-G(\xv,\yv) = {\sum_{p=0}^{L}{\frac{(2p+1)k}{4\pi}i^{p+1}h_p^{(1)}(k|\rv_0|)\int_{S^{2}}P_p(\cos(\svh, \rv_0))}d\svh}
+\begin{split}
+G(\xv,\yv) = \frac{ik}{4\pi}\sum_{p=0}^{L}{} (2p+1)i^{p}h_p^{(1)}(k|\rv_0|)  \\
+ \times\int_{S^{2}}P_p(\cos(\svh, \rv_0))d\svh 
+\end{split}
 \end{equation}
 
 Cependant pour $p\in\bbrac{0,L}$ comme notre quadrature intègre exactement les polynomes de degrés inférieur ou égal à $2L+1$ et d'après l'ortogonalité des polynômes de Legendre, il vient, 
 
 \begin{equation}
-G(\xv,\yv) = ikh^{(1)}_{p}(k|\rv_0|)
+G(\xv,\yv) = ikh^{(1)}_{0}(k|\rv_0|)
 \end{equation}
 
-Ceci nous permet alors de confirmer le choix des fonctions de Hankel et le bon fonctionnement de la quadrature sur les polynômes de Legendre.
+Nous avons un résultat analytique très pratique pour vérifier le code. Ceci nous permet en outre de confirmer le choix des fonctions de Hankel et le bon fonctionnement de la quadrature sur les polynômes de Legendre. 
 
 
 
 \vspace*{10pt}
 
-\subsection*{Resultats}
+\subsection*{3. Resultats}
 
-Nous avons donc un code qui fonctionne bien sur le cas test précédemment. De plus ... 
-
+Pour nous assurer du bon fonctionnement de notre code nous avons calculé différentes valeurs de la fonction de green en différents points en faisant varier $k$ et $L$. 
 
 \end{multicols}
 
+\rule{8cm}{1pt}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{m{0.5cm} m{0.5cm} | m{2cm} m{2cm} m{2cm} m{2cm} | m{2.5cm} m{2.5cm}} 
+   \hline
+    $k$ & $L_q$ & $\xv/L$ & $\yv/L$ & $\xv_0/L$ & $\yv_0/L$ & Res exact & Res approché \\
+    \toprule
+    \toprule
+    $4\pi$ & 1 & (0 0 0) & (1 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\
+    $4\pi$ & 5 & (0 0 0) & (1 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\ \hline
+    $4\pi$ & 5 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\
+    $4\pi$ & 10 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\ \hline
+    $4\pi$ & 5 & (0.1 0.1 0.1) & (0.3 0.3 0.3) & (0 0 0) & (0.3 0.3 0.3) & 0 & 0\\
+    \hline
+\end{tabular}
+\caption{Résultat de la décomposition en ondes planes avec L longueur max}
+\end{table}
 
 
+
+\hfill\rule{8cm}{1pt}
+
+\begin{multicols}{2}
+
+Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ nous obtenons un resultat exact même pour $L=1$.  
+
+\vspace*{22pt}
+
+
+\section*{Question 6}
+
+\lipsum[1]
+
+
+\end{multicols}
 
 \end{document}

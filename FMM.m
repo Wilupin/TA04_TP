@@ -91,6 +91,8 @@ set(hAx(2),'ylim', [0, max(temps_2(2:end))*1.10]);
 set(hAx(1),'YTick', linspace(0,max(temps_1(2:end))*1.50,5));
 set(hAx(2),'YTick', linspace(0,max(temps_2(2:end))*1.10,5));
 
+
+
 xlabel(h_axis,'$N$','Interpreter','LaTeX',...
     'FontSize',10);
 
