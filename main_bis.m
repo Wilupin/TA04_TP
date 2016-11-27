@@ -1,7 +1,7 @@
-clear all; 
+clear all
 
 % Initialisation des constantes du probl?me 
-c        = 3*10.0^8;     % C?l?rit? des ondes
+c        = 3*10.0^8;     % Celerite des ondes
 f        = 2*c;          % Frequence
 k        = (2*pi*f)/c;   % Nombre d'onde
 lambda   = c/f;          % Longueur d'onde
@@ -23,35 +23,48 @@ rho = ones(N,1);
 % Attention partition est une structure de donnees
 partition = buildOctree_bis(coord, N, lambda);
 
-% Allocation du vecteur r?sultats
-Res = zeros(N,1);
 
 % On commence a compter le temps a partir d'ici
 disp('Debut de la multiplication matrice-vecteur')
-tic
 
-% Boucle sur les les points pour calculer les contribution des elements
-% lointains de notre probleme, hors voisinage.
-for q=1:N
-    q
-    % Partition dans laquelle appartient q
-    q1 = partition.label_box(q);
-    G = 0; 
-    for p=1:partition.nb_part_nv
-        G = G + green_approx_bis(coord, partition, q1, q, rho, k,theta,omega_theta, phi,omega_phi,L);
-       if(partition.liste_voisins(q1,p) == 0)
-            for j=1:partition.size_box(p)
-                if (q ~= partition.points_box(p,j))
-                    x = coord(q,:);
-                    y = coord(partition.points_box(p,j),:);
-                    normXY = sqrt((x-y)*(x-y)');
-                    G = G + (exp(1i*k*normXY)/normXY)*rho(partition.points_box(p,j));
+% Calcul des contribution des cases eloignees
+Res = green_approx_bis(coord,partition,rho,k,theta,omega_theta,phi,omega_phi,L,N);
+    
+
+% Cette partie fonctionne bien on n'y touche plus
+% On reparcourt une fois l'ensemble des cases
+for p1=1:partition.nb_part_nv
+    
+    % On s'interesse cette fois ci aux cases voisines
+    for p2=p1:partition.nb_part_nv
+        if(partition.liste_voisins(p1,p2) > 0)
+            
+            for l1=1:partition.size_box(p1)
+                for l2=1:partition.size_box(p2)
+                    
+                    if (partition.points_box(p1,l1) ~= partition.points_box(p2,l2))
+                        
+                        x = coord(partition.points_box(p1,l1),:);
+                        y = coord(partition.points_box(p2,l2),:);
+                        normXY = sqrt((x-y)*(x-y)');
+                        
+                        Res(partition.points_box(p1,l1)) = Res(partition.points_box(p1,l1)) + ...
+                            (exp(1i*k*normXY)/normXY)*rho(partition.points_box(p2,l2));
+                        
+                        if(p2 ~= p1)
+                            
+                            Res(partition.points_box(p2,l2)) = Res(partition.points_box(p2,l2)) + ...
+                                (exp(1i*k*normXY)/normXY)*rho(partition.points_box(p1,l1));
+                            
+                        end
+                    end
                 end
             end
+            
         end
     end
-    Res(q) = G;
 end
+
 
 
 

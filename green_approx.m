@@ -21,8 +21,7 @@ for j=1:L+1
         sin(theta(j))*sin(phi(:)).' ; ...
         cos(theta(j))*ones(2*L+1,1).'];
     
-    leg = my_legendre(L, (s(1,:)*r0(1) + ...
-            s(2,:)*r0(2) + s(3,:)*r0(3))./normR0);
+    leg = my_legendre(L, sum(bsxfun(@times,r0(:),s(:,:)))./normR0);
     
     G = sum(bsxfun(@times,vec(:).*hank(:),leg(:,:))); 
     G = G.*exp(-1i*sum(k*bsxfun(@times,y_diff(:),s(:,:))));  

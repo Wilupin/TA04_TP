@@ -7,7 +7,7 @@ k        = (2*pi*f)/c;   % Nombre d'onde
 lambda   = c/f;          % Longueur d'onde
 nlambda  = 5;            % Densit? de points par longueur d'onde
 
-L = 10;
+L = 5;
 
 
 % Recuperation des coordonnees des points du maillage
@@ -40,11 +40,9 @@ for q=1:N
     for p=1:partition.nb_part_nv
         if(partition.liste_voisins(q1,p) == 0)
             for j=1:partition.size_box(p)
-                tic
                 G = G + green_approx(coord(q,:), coord(partition.points_box(p,j),:),...
                     partition.coords_box(q1,:),partition.coords_box(p,:), ...
                     k,theta, omega_theta, phi, omega_phi,L)*rho(partition.points_box(p,j));
-                toc
                 %disp(['Partition :',num2str(p), ' Point : ', num2str(partition.points_box(p,j)), ...
                 %    ' Valeur de G1 : ', num2str(G1)])
             end           
@@ -58,8 +56,8 @@ for q=1:N
                     % disp(['Partition :',num2str(p), ' Point : ', num2str(partition.points_box(p,j)), ...
                     %' Valeur de G : ', num2str(G), ])
                 end
-            end
-        end
+             end
+         end
     end
     Res(q) = G;
 end

@@ -11,7 +11,7 @@ Res     = zeros(N,1);
 
 
 % Boucle d'integration
-for j=1:(L+1)
+for j=1:L+1
     
     disp(['Iteration : ', num2str(j)])
     
@@ -20,6 +20,7 @@ for j=1:(L+1)
     s = [sin(theta(j))*cos(phi(:)).'; ...
         sin(theta(j))*sin(phi(:)).' ; ...
         cos(theta(j))*ones(2*L+1,1).'];
+    
     
     % Calcul des coefficients de "masse "RCy
     for p2=1:partition.nb_part_nv
@@ -30,8 +31,8 @@ for j=1:(L+1)
         for l2=1:partition.size_box(p2);
             y = coord(partition.points_box(p2,l2),:);
             y_diff = (y - y0).';
-            %[y0.' y.' y_diff]
-            Texp1 = exp(-1i*k*sum(bsxfun(@times,y_diff(:),s(:,:))));
+            [y0 y y_diff]
+            Texp1 = exp(+1i*k*sum(bsxfun(@times,y_diff(:),s(:,:))));
             RCy(p2,:) = RCy(p2,:) + Texp1.*rho(partition.points_box(p2,l2));
         end
         
@@ -57,32 +58,33 @@ for j=1:(L+1)
                 % Calcul des fonctions tabulee a utiliser
                 hank = hankel(L,k*normR0);      
                 leg  = my_legendre(L, sum(bsxfun(@times,r0(:),s(:,:)))./normR0);
-                
-                LCx =  LCx + RCy(p2,:).*(1i*k/(4*pi)).*sum(bsxfun(@times,vec(:).*hank(:),leg(:,:)));           
-                %disp(['Iteration j : ', num2str(j),  ' Partition ', num2str(p2)]);
-                
+ 
+                LCx =  LCx + RCy(p2,:).*sum(bsxfun(@times,vec(:).*hank(:),leg(:,:)));
+                      
              end
         end
         
         
-        % Mise ? jour pour les points dans p1 de Res
+        % Somme sur les elements dans p1
         for l1=1:partition.size_box(p1)
             
             x = coord(partition.points_box(p1,l1),:);
             x_diff = (x - x0).';
-            %[x0' x' x_diff]
-            Texp2 = exp(+1i*k*sum(bsxfun(@times,x_diff(:),s(:,:))));
-            Res(partition.points_box(p1,l1)) = Res(partition.points_box(p1,l1)) + ...
-                sum(LCx.*Texp2)*omega_theta(j)*omega_phi;
-          
-        end 
+            Texp2 = exp(-1i*k*sum(bsxfun(@times,x_diff(:),s(:,:))));
+            
+            Res(partition.points_box(p1,l1)) = Res(partition.points_box(p1,l1)) + sum(LCx.*Texp2);
+            %disp(['Iteration j : ', num2str(j),  ' Partition ', num2str(p2), ' Res : ', num2str(Res(partition.points_box(p1,l1))) ])
+        end
+      
+        
     end
     
-    %disp(['Iteration j : ', num2str(j), ' Res : ', num2str(Res(partition.points_box(p1,l1))) ])
+    Res = Res*omega_theta(j);
    
 end
-  
 
+Res = Res*omega_phi*(1i*k/(4*pi));
+      
 end
 
 
