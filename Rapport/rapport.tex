@@ -7,6 +7,9 @@
 \usepackage{shortcutLatex}
 \usepackage{envLatex}
 \usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
 \graphicspath{{logos/}{figures/}}
 
 
@@ -167,8 +170,8 @@ Ainsi si $m \neq 0$ l'integrale sur $\phi$ donne directement $I = 0$.  De plus, 
 \begin{equation}
 \sum_{i,j}{\omega_i \omega_j Y_{lm}(\theta_j, \phi_i)} = 
 	\begin{cases}
-		0 & \text{ si } m \neq 0 \text{ et } l \neq 0 \\
-		\sqrt{4\pi} & \text{ si } m = 0 \text{ ou } l = 0
+		0 & \text{ si } m \neq 0 \text{ ou } l \neq 0 \\
+		\sqrt{4\pi} & \text{ si } m = 0 \text{ et } l = 0
 	\end{cases}
 \end{equation}
 
@@ -181,7 +184,8 @@ En particulier, la quadrature sur $\phi$ doit vérifier :
 	\end{cases}
 \end{equation}
 
-L'avantage de cette quadrature ...
+\color{blue} L'avantage de cette quadrature et d'intégrer exactement les harmoniques sphériques qui sont une base de la décomposition en onde plane de et de donner donc de très bon résultat pour nos formules qui les font apparaitre. Ceci tout en utilisant un nombre de point restreint
+\color{black}
 
 \vspace*{22pt}
 
@@ -223,7 +227,7 @@ L'intégrale sur la sphére unité est alors calculée par la quadrature à $(2L
 	h^{(1)}_{p}(z) = e^{iz}\sum_{k=0}^{p}{\frac{(p+k)!}{2^{k}(p-k)!}\frac{1}{z^{k+1}}}
 \end{equation}
 
-Pour être plus rapide dans le code ces fonctions sont en réalité calculées à l'aide de la formule de récurrence suivante. Ceci esr pratique puisque nous avons besoin de toutes les fonctions de hankel jusuqu'à l'ordre $L$.
+Pour être plus rapide dans le code ces fonctions sont en réalité calculées à l'aide de la formule de récurrence suivante. Ceci est pratique puisque nous avons besoin de toutes les fonctions de hankel jusuqu'à l'ordre $L$.
 
 \begin{equation}
 	h_{p+1}^{(1)}(z) =  \frac{2p+1}{z}h_{p}^{(1)}(z) - h_{p-1}^{(1)}(z) 
@@ -278,16 +282,16 @@ Pour nous assurer du bon fonctionnement de notre code nous avons calculé diffé
 
 \begin{table}[H]
 \centering
-\begin{tabular}{m{0.5cm} m{0.5cm} | m{2cm} m{2cm} m{2cm} m{2cm} | m{2.5cm} m{2.5cm}} 
+\begin{tabular}{m{0.5cm} m{0.5cm} | m{2cm} m{2cm} m{2cm} m{2cm} | m{2cm} m{2cm} m{1cm}} 
    \hline
-    $k$ & $L_q$ & $\xv/L$ & $\yv/L$ & $\xv_0/L$ & $\yv_0/L$ & Res exact & Res approché \\
+    $k$ & $L_q$ & $\xv/L$ & $\yv/L$ & $\xv_0/L$ & $\yv_0/L$ & $G_{ex}(\xv, \yv)$ & $G_{\simeq}(\xv,\yv)$ & $\varepsilon$ (\%) \\
     \toprule
     \toprule
-    $4\pi$ & 1 & (0 0 0) & (1 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\
-    $4\pi$ & 5 & (0 0 0) & (1 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\ \hline
-    $4\pi$ & 5 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\
-    $4\pi$ & 10 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0\\ \hline
-    $4\pi$ & 5 & (0.1 0.1 0.1) & (0.3 0.3 0.3) & (0 0 0) & (0.3 0.3 0.3) & 0 & 0\\
+    $4\pi$ & 1 & (0 0 0) & (1 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\
+    $4\pi$ & 5 & (0 0 0) & (1 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\ \hline
+    $4\pi$ & 5 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\
+    $4\pi$ & 10 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\ \hline
+    $4\pi$ & 5 & (0.1 0.1 0.1) & (0.3 0.3 0.3) & (0 0 0) & (0.3 0.3 0.3) & 0 & 0 & 0\\
     \hline
 \end{tabular}
 \caption{Résultat de la décomposition en ondes planes avec L longueur max}
@@ -306,7 +310,57 @@ Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ 
 
 \section*{Question 6}
 
-\lipsum[1]
+Nous avons réalisé le partitionnement, correspondant à un niveau de ce qu'aurait été l'octree dans un algorithme multi-niveau dans un fonction nous renvoyant une structure nommée \textbf{partition}. Les attributs essentiels de cette structure Matlab sont trois tableaux : \\
+
+\begin{itemize}
+\item du numéro des noeuds dans chaque boite. 
+\item du nombre de noeuds dans chaque boite.
+\item des coordonnées du centre de chaque boite. 
+\end{itemize}
+
+\vspace*{10pt}
+Même si l'on ne prend pas en compte cette étape dans le temps de calcul du produit matrice vecteur il est bon d'essayer de ne pas la rendre trop longue. Pour ce faire nous n'avons réalis,é pour la création des boites de la partition et l'extraction des noeuds qui y appartiennent, que des boucles sur au maximum le nombre de boite et jamais sur le nombre de noeuds total qui est bien plus important. De plus pour ne pas surcharger la mémoire et comme beacoup des tableaux de \textbf{partition} sont creux nous avons utilisé une définition en tant que \textit{sparse} de ces matrices. \\
+
+
+Après avoir réalisé le partitionnement nous nous sommes attaqués à l'écriture totale du code de résolution FMM à un noveau en réutilisant toutes les fonctions déjà écrites. Nous pouvons résumé ici la structure de l'algorithme final de la sorte : 
+
+\begin{algorithm}[H]
+	\begin{algorithmic}[1]
+		\State Initialisation des données du problèmes
+        \State Maillage du domaine
+        \State Initialisation des points de quadrature
+        \State Creation des partitions
+        \State Calcul du produit pour les noeuds non voisins
+        \State Calcul des contributions des voisins
+	\end{algorithmic}
+\end{algorithm}
+    
+Le coeur du problème se trouve alors dans le calcul du produit matrice vecteur sur les noeuds non voisins. Pour cela nous avons réalisé ...
+
+
+\vspace*{22pt}
+
+\section*{Question 7}
+
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[width=0.95\columnwidth]{Q2a_4.pdf}
+  \vspace*{-11pt}
+  \caption{Evolution du temps de calcul du produit matrice vecteur par la méthode classique $\tau_{class}$ (rouge) et par la méthode FMM $\tau_{FMM}$ (bleu) avec $N$.}
+  \label{fig:Q7a}
+  \end{center}
+\end{figure}
+\vspace*{-22pt}
+
+Nous avons pu aussi regarder les erreurs totales obtenues en fonction de $L_q$ utilisé pour une certaine configuration donnée. 
+
+
+\vspace*{22pt}
+\section*{Question 8}
+
+Nous pouvons remarquer que bien que malgrès une complexité plus avantageuse et nos effort pour le rendre le plus rapide possible ce nouveau algorithme met plus de temps à s'executer que le produit réalisé classiquement pour le nombre de points (qui reste relativement faible) que nous aons pu tester. En effet nous avons pour $N = ...$, un temps $\tau_{FMM} = ... $s et $\tau_{class} = ... $s. Nous pouvons dire, en comparant les deux courbes de la quesiton précédente qu'il faudrait atteindre $N = ...$ pour que l'utilisation de la FMM mono-niveau soit, dans ce cas, utile. 
+
 
 
 \end{multicols}
