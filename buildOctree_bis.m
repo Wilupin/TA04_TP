@@ -4,7 +4,7 @@ function [partition] = buildOctree_bis(coord, N, lambda)
 partition = struct;
 
 % Variables utilis?es
-d = 0.3*lambda;
+d = 0.5*lambda;
 L = 1.0;
 l = 0.5;
 

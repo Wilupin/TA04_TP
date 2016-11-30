@@ -1,7 +1,7 @@
 clear all
 
 % Force le code ? ne s'executer que sur un seul processeur 
-num_proc_before = maxNumCompThreads(1)
+%num_proc_before = maxNumCompThreads(1)
 
 % Initialisation des constantes du probleme
 c        = 3*10.0^8;     % Celerite des ondes
@@ -11,13 +11,13 @@ L = 2;
 
 journal_plot_params
 
-Num_points = 9; 
+Num_points = 40; 
 
 for m=1:Num_points
     
     disp(['Calcul pour m = ', num2str(m)]);
-    
-    f = 0.5*m*c;          % Frequence
+        
+    f = 0.1*m*c; 
     
     disp(['-> f = ', num2str(f)]);
     
@@ -38,6 +38,8 @@ for m=1:Num_points
     % Recuperation du partitionement
     % Attention partition est une structure de donnees
     partition = buildOctree_bis(coord, N(m), lambda);
+    
+    disp(['Nombre de partition : ', num2str(partition.nb_part_nv)])
     
     
     % On commence a compter le temps a partir d'ici
@@ -188,8 +190,8 @@ set(h_t2, 'LineStyle', 'none')
 set(h_t2, 'Color', 'red');
 set(h_t2, 'MarkerFaceColor', 'red')
 
-loglog(N, (temps_1(Num_points)/(N(Num_points).^(3/2)))*N.^(3/2), '--','Color', line_color_3)
-loglog(N, (temps_2(Num_points)/(N(Num_points).^2))*N.^2,'--','Color', line_color_3)
+loglog(N, (temps_1(Num_points-1)/(N(Num_points-1).^(3/2)))*N.^(3/2), '--','Color', line_color_3)
+loglog(N, (temps_2(Num_points-1)/(N(Num_points-1).^2))*N.^2,'--','Color', line_color_3)
 
 %set(gca, 'xlim', [min(N)*(0.5), max(N)*1.50]);
 %set(gca, 'ylim', [min(temps_2)*(0.5), max(temps_1)*5]);
