@@ -2,7 +2,7 @@ function Res_int = intHarm(l,m)
 
 % Assemblage de la matrice T
 L = 4;
-T      = sparse(L+1,L+1);
+T = sparse(L+1,L+1);
 
 
 for j = 1:L

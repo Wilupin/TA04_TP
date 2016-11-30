@@ -5,7 +5,7 @@ c        = 3*10.0^8;     % Celerite des ondes
 f        = 2*c;          % Frequence
 k        = (2*pi*f)/c;   % Nombre d'onde
 lambda   = c/f;          % Longueur d'onde
-nlambda  = 5;            % Densit? de points par longueur d'onde
+nlambda  = 5;            % Densite de points par longueur d'onde
 
 L = 10;
 

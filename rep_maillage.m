@@ -3,20 +3,38 @@ clear all;
 journal_plot_params;
 
 c = 3*10.0^8;
+f = 2*c;
 
 nlambda = 10;
-f = 3*10.0^8;
+lambda = c/f;
 
 k = (2*pi*f)/c;
 
-[coord, N] = Maillage(nlambda,f);
-refNodes = buildOctree(coord,N,lambda);
+x = 0:1:10
+y = 0:1:10
 
+
+
+
+[coord, N] = Maillage(nlambda,f);
+partition = buildOctree_bis(coord,N,lambda);
+
+color = [ones(N,1), zeros(N,1), zeros(N,1)];
+
+A = full(partition.points_box(1,:));
+id = find(A > 0);
+color(A(id),1) = 0;
+color(A(id),2) = 0;
+
+B = full(partition.points_box(20,:));
+id = find(B > 0);
+color(B(id),1) = 0;
+color(B(id),3) = 1;
 
 h_fig = setFigure('ScatterPlot');
-h_plot = scatter3(coord(:,1), coord(:,2), coord(:,3), 4)
-set(h_plot, 'MarkerFaceColor', 'red')
-set(h_plot, 'MarkerEdgeColor', 'red')
+h_plot = scatter3(coord(:,1), coord(:,2), coord(:,3),6,color)
+%set(h_plot, 'MarkerFaceColor', 'red')
+%set(h_plot, 'MarkerEdgeColor', 'red')
 axis equal
 grid off
 view(152,25)

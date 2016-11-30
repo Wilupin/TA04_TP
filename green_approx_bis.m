@@ -1,9 +1,6 @@
 function Res = green_approx_bis(coord,partition,rho,k,theta,omega_theta,phi,omega_phi,L,N)
 
 
-num_proc_before = maxNumCompThreads(1)
-
-
 vec = zeros(L+1,1);
 
 for p=0:L
@@ -14,7 +11,7 @@ Res     = zeros(N,1);
 
 
 % Boucle d'integration
-for j=1:(L+1)
+for j=1:1%(L+1)
     
     disp(['Iteration : ', num2str(j)])
     

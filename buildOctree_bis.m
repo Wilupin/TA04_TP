@@ -5,6 +5,10 @@ partition = struct;
 
 % Variables utilisees
 d = 0.3*lambda;
+
+% Variables utilis?es
+d = 0.5*lambda;
+
 L = 1.0;
 l = 0.5;
 
@@ -42,7 +46,9 @@ end
 
 % Rassemblement des informations dans un seul et m?me tableau
 partition.ref_box  = [refBox_x, refBox_y, refBox_z];
-coordBox           = [coordBox_x, coordBox_y, coordBox_z];
+coordBox   = [coordBox_x, coordBox_y, coordBox_z];
+
+partition.coordBox_rep = coordBox;
 
 
 % Association des points dans chaque boite

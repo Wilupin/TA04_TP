@@ -115,19 +115,19 @@ Comme il l'est montré en \refig{Q2b}, l'évolution du logarithme de $\tau_a$ av
 
 \section*{Question 3}
 
-Nous avons calculé la quadrature de Gauss-Legendre à L points en diagonsalisant la matrice tridiagonale définie dans l'énoncé. La methode utiliséé pour obtenir les points de quadrature est la méthode de Golub-Welsh\footnote{\textit{Calculation of Gauss Quadrature Rules}, G.H. Golub and J.H. Welsh \color{cyan}, Math. Comp. 23 (1969), 221-230 \color{black}, (Apr., 1969)}. Avec les notations du TP nous calculons, pour P polynôme tel que $\text{deg}P \le 2L-1$,
+Nous avons calculé la quadrature de Gauss-Legendre à $L_q$ points en diagonsalisant la matrice tridiagonale définie dans l'énoncé. La methode utiliséé pour obtenir les points de quadrature est la méthode de Golub-Welsh\footnote{\textit{Calculation of Gauss Quadrature Rules}, G.H. Golub and J.H. Welsh \color{cyan}, Math. Comp. 23 (1969), 221-230 \color{black}, (Apr., 1969)}. Avec les notations du TP et $L_q$ le nombre de points de quadrature (à ne pas confondre avec $L$ la longueur du pavé) nous calculons, pour P polynôme tel que $\text{deg}P \le 2L_q-1$,
 
 \begin{equation}
-	\int_{-1}^{1}{P(t)dt} = \sum_{i=1}^{L}{\omega_i P(\lambda_i)}
+	\int_{-1}^{1}{P(t)dt} = \sum_{i=1}^{L_q}{\omega_i P(\lambda_i)}
 \end{equation}
 
 Ceci est équivalent, par un changement de variable, à
 
 \begin{equation}
-	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L}{\omega_i P(\cos(\theta_i))}
+	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L_q}{\omega_i P(\cos(\theta_i))}
 \end{equation}
 
-Nous avons testé cette quadrature avec $L = 3$ en comparaison de celle à 3 points dévleoppée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la qudrature effectuée par Matlab et $I_v$ la valeur vraie pour l'integration de la fonction polynomiale $P$.
+Nous avons testé cette quadrature avec $L_q = 3$ en comparaison de celle à 3 points dévleoppée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la qudrature effectuée par Matlab et $I_v$ la valeur vraie pour l'integration de la fonction polynomiale $P$.
 
 \begin{table}[H]
 \centering
@@ -144,14 +144,14 @@ Nous avons testé cette quadrature avec $L = 3$ en comparaison de celle à 3 poi
 \caption{Résultat des quadratures numériques}
 \end{table}
 
-Comme attendu nous observons que pour la quadrature de Gauss-Legendre donne les même resultats pour des polynômes de degré inférieur ou égal à 3 que la quadrature du premier TP. En revanche, comme nous pouvions nous y attendre cette nouvelle quadrature nous permet d'avoir une solution correcte pour des polynomes de degré 4 et 5, puisque la formule est bien exacte jusqu'au degé $2L-1$.
+Comme attendu nous observons que pour la quadrature de Gauss-Legendre donne les même resultats pour des polynômes de degré inférieur ou égal à 3 que la quadrature du premier TP. En revanche, comme nous pouvions nous y attendre cette nouvelle quadrature nous permet d'avoir une solution correcte pour des polynomes de degré 4 et 5, puisque la formule est bien exacte jusqu'au degé $2L_q-1$, ce que nous n'avions pas avant. 
 
 
 \vspace*{12pt}
 
 \section*{Question 4}
 
-Notons 
+Notons, pour $l\in\N$ et $m\in\bbrac{-l,l}$ :
 \begin{equation}
 	C_{l,m} = \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}
 \end{equation}
@@ -161,9 +161,9 @@ Nous avons, par définition,
 Y_{lm}(\theta, \phi) = C_{l,m}P_l^{m}\(\cos(\theta)\)e^{im\phi}
 \end{equation}
 
-En notant $I$ l'intégrale de $Y_{lm}$ sur la sphère unité, 
+En notant $I_{Y_{lm}}$ l'intégrale de $Y_{lm}$ sur la sphère unité (nous noterons $I_{GL,Y_{lm}}$ le résultat numérique de la quadrature), 
 \begin{equation}
-I = C_{l,m}\int_{0}^{\pi}{P_l^{m}\(\cos(\theta)\)\sin(\theta)d\theta}\int_{0}^{2\pi}e^{im\phi}d\phi
+I_{Y_{lm}} = C_{l,m}\int_{0}^{\pi}{P_l^{m}\(\cos(\theta)\)\sin(\theta)d\theta}\int_{0}^{2\pi}e^{im\phi}d\phi
 \end{equation}
 
 Ainsi si $m \neq 0$ l'integrale sur $\phi$ donne directement $I = 0$.  De plus, d'après d'autres propriétés des polynomes de Legendre, la quadrature totale doit alors satisfaire les égalités suivantes :
@@ -184,10 +184,12 @@ En particulier, la quadrature sur $\phi$ doit vérifier :
 	\end{cases}
 \end{equation}
 
-\color{blue} L'avantage de cette quadrature et d'intégrer exactement les harmoniques sphériques qui sont une base de la décomposition en onde plane de et de donner donc de très bon résultat pour nos formules qui les font apparaitre. Ceci tout en utilisant un nombre de point restreint
-\color{black}
+Nous avons réalisé une quadraturre à $L_q+1$ points en $\theta$ et $2L_q+1$ points en $\phi$. Nous notons une intégration exacte, à erreur d'arrondi machine de l'ordre de $10^{-8}$, pour toute les harmoniques sphériques avec $l \le 2L_q+1$. Cependant pour $l$ supérieur nous pouvons commencer à remarquer des écarts puisque la quadrature nous donne une valeur numérique $I_{GL-Y_{lm}} = 2.576$ pour $Y_{l=9,m=9}$ en utilisant $L_q = 4$. \\
+\indent
+Nous aurions pu utiliser toute autre quadrature de Gauss, de Simpsons, etc. L'avantage de cette quadrature ci et d'intégrer exactement les harmoniques sphériques et de donner donc de très bon résultats pour nos expressions qui peuvent se décomposer avec une très bonne approximation sur une base constituée d'un nombre limité d'entre elles. Le deuxième avantage qui apparait est qu'il faut un nombre de points $(L_q+1)(2L_q+1)$ pour pouvoir intégrer exactement des harmoniques sphériques jusqu'à l'ordre $l=2L_q+1$ et donc ainsi utiliser un nombre de points restreint. \\
 
-\vspace*{22pt}
+
+%\vspace*{22pt}
 
 
 
@@ -202,7 +204,7 @@ En particulier, la quadrature sur $\phi$ doit vérifier :
 
 \subsection*{1. Mise en pratique}
 
-Nous souhaitons calculer la décomposition en onde plane de la fonction de green G. Posons $\xv - \yv = (\yv_0 - \yv) + (\xv_0 - \yv_0) - (\xv_0 - \xv) = \rv + \rv_0$. Nous utilisons les formules 
+Nous souhaitons calculer la décomposition en onde plane de la fonction de green G. Posons $\xv - \yv = (\yv_0 - \yv) + (\xv_0 - \yv_0) - (\xv_0 - \xv) = \rv + \rv_0$. Nous utilisons
 
 \begin{equation}
 	G(\xv, \yv) = \frac{\exp(ik|\xv-\yv|)}{|\xv-\yv|} \simeq \int_{S^{2}}{e^{ik\svh\rv}\Gc_Ld\svh}
@@ -211,7 +213,7 @@ Nous souhaitons calculer la décomposition en onde plane de la fonction de green
 \vspace*{-11pt}
 
 \begin{equation}
-\Gc_L = \frac{ik}{4\pi}\sum_{p=0}^{L}{(2p+1)i^{p}h_p^{(1)}(k|\rv_0|)P_p(\cos(\svh, \rv_0))}
+\Gc_{L_G} = \frac{ik}{4\pi}\sum_{p=0}^{L_G}{(2p+1)i^{p}h_p^{(1)}(k|\rv_0|)P_p(\cos(\svh, \rv_0))}
 \end{equation}
 
 \vspace*{-11pt}
@@ -221,7 +223,9 @@ Nous souhaitons calculer la décomposition en onde plane de la fonction de green
 \end{equation}
 
 
-L'intégrale sur la sphére unité est alors calculée par la quadrature à $(2L+1)(L+1)$ points déterminée dans la question précédente. Il faut être prudent et utiliser ici les fonctions de hankel sphériques et non celles définies sous Matlab avec la denomination \textit{besselh}. Ces fonctions sont définies par, pour $(z,p) \in \R^{*}_{+}\times\N$,
+L'intégrale sur la sphére unité est alors calculée par la quadrature déterminée dans la question précédente. En effet, la largeur de bande de l'équation a intégrer étant de $2L_G$ comme nous intégrons quasiment exactement avec une quadrature de $L_q$ en $\theta$ et $2L_q+1$ et $\phi$ les harmoniques sphériques $Y_{lm}$ avec $l \ne 2L_q+1$ nous prenons ici une quadrature de $L_G+1$ points en $\theta$ et $2L+1$ points en $\phi$. \\
+\indent
+De plus, il faut être prudent et utiliser ici les fonctions de hankel sphériques et non celles définies sous Matlab avec la denomination \textit{besselh}. Ces fonctions sont définies par, pour $(z,p) \in \R^{*}_{+}\times\N$,
 
 \begin{equation}
 	h^{(1)}_{p}(z) = e^{iz}\sum_{k=0}^{p}{\frac{(p+k)!}{2^{k}(p-k)!}\frac{1}{z^{k+1}}}
@@ -233,14 +237,14 @@ Pour être plus rapide dans le code ces fonctions sont en réalité calculées �
 	h_{p+1}^{(1)}(z) =  \frac{2p+1}{z}h_{p}^{(1)}(z) - h_{p-1}^{(1)}(z) 
 \end{equation}
 
-De même, par souci de rapidité, nous n'utilisons pas non plus la fonction \textit{legendreP} de Matlab pour récupérer la valeur des polynômes de Legendre. Nous procédons aussi avec la formule de récurrence, pour  $(x,p) \in \R\times\N$,: 
+De même, par souci de rapidité, nous n'utilisons pas non plus la fonction \textit{legendreP} intégrée au logiciel pour récupérer la valeur des polynômes de Legendre. Nous procédons aussi avec une formule de récurrence, ceci nous ayant permis d'en récupéréer les valeurs approximativement 10 fois plus vite qu'avec la fonction de Matlab. Pour  $(x,p) \in \R\times\N$, 
 
 \begin{equation}
 	P_{p+1}(x) =  \frac{2p+1}{p+1}xP_{p}(x) - \frac{p}{p+1}P_{p-1}(x) 
 \end{equation}
 
 
-Enfin nous noterons aussi que pour réaliser des calculs rapides en vectorialisant au maximum les opérations effectuées nous avons beacoup utilisé la fonction \textit{bsxfun(@times, ..., ...)} de Matlab.
+Enfin nous noterons aussi que pour réaliser des calculs rapides en vectorialisant au maximum les opérations effectuées nous avons beacoup utilisé la fonction \textit{bsxfun(@times, ..., ...)} du logiciel.
 
 
 
@@ -251,7 +255,7 @@ Enfin nous noterons aussi que pour réaliser des calculs rapides en vectorialisa
 
 \subsection*{2. Un exemple de cas test}
 
-Pour tester nos codes nous avons utilisé le cas test $\rv = 0$ et $\rv_0 = \xv - \yv$. En effet dans ce cas nous pouvons écrire
+Pour tester nos codes nous avons utilisé le cas test $\rv = 0$ et $\rv_0 = \xv - \yv$. En effet dans ce cas,
 
 \begin{equation}
 \begin{split}
@@ -274,7 +278,7 @@ Nous avons un résultat analytique très pratique pour vérifier le code. Ceci n
 
 \subsection*{3. Resultats}
 
-Pour nous assurer du bon fonctionnement de notre code nous avons calculé différentes valeurs de la fonction de green en différents points en faisant varier $k$ et $L$. 
+Pour nous assurer du bon fonctionnement de notre code nous avons calculé différentes valeurs de la fonction de green en différents points en faisant varier $k$ et $L_q$.
 
 \end{multicols}
 
@@ -303,7 +307,7 @@ Pour nous assurer du bon fonctionnement de notre code nous avons calculé diffé
 
 \begin{multicols}{2}
 
-Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ nous obtenons un resultat exact même pour $L=1$.  
+Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ nous obtenons un resultat exact même pour $L_q=1$.  
 
 \vspace*{22pt}
 
@@ -321,6 +325,16 @@ Nous avons réalisé le partitionnement, correspondant à un niveau de ce qu'aur
 \vspace*{10pt}
 Même si l'on ne prend pas en compte cette étape dans le temps de calcul du produit matrice vecteur il est bon d'essayer de ne pas la rendre trop longue. Pour ce faire nous n'avons réalis,é pour la création des boites de la partition et l'extraction des noeuds qui y appartiennent, que des boucles sur au maximum le nombre de boite et jamais sur le nombre de noeuds total qui est bien plus important. De plus pour ne pas surcharger la mémoire et comme beacoup des tableaux de \textbf{partition} sont creux nous avons utilisé une définition en tant que \textit{sparse} de ces matrices. \\
 
+
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[width=0.95\columnwidth]{Q6.pdf}
+  \vspace*{-11pt}
+  \caption{Représentation de deux paquets deux points appartenants à deux boites de taille $d$ différentes en sortie de notre algorithme de partition (représentés en bleu et en noir). Celle en bleu contient moins de points car elle ne contient que des éléments du haut de la boite alors que celui en noir regroupe des points sur trois faces. $f=2c/L$, $n_\lambda = 10$, $d=0.3\lambda$.}
+  \label{fig:Q6}
+  \end{center}
+\end{figure}
 
 Après avoir réalisé le partitionnement nous nous sommes attaqués à l'écriture totale du code de résolution FMM à un noveau en réutilisant toutes les fonctions déjà écrites. Nous pouvons résumé ici la structure de l'algorithme final de la sorte : 
 
