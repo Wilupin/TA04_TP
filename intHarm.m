@@ -1,8 +1,8 @@
 function Res_int = intHarm(l,m)
 
 % Assemblage de la matrice T
-L = 4;
-T = sparse(L+1,L+1);
+L = 2;
+T = zeros(L+1,L+1);
 
 
 for j = 1:L
@@ -13,7 +13,7 @@ end
 
 
 % Calcul des valeurs propres et des vecteurs propres
-[EigVec, EigVal] = eigs(T,L+1);
+[EigVec, EigVal] = eig(T);
 
 lambda        = diag(EigVal);
 omega         = 2*(EigVec(1,:)).^2;
@@ -24,6 +24,7 @@ omega_phi     = 2*pi/(2*L+1);
 P = legendre(l,lambda(:));
 
 if m >= 0 
+    sum(exp(i*m*phi(1:end-1))*omega_phi)
     Res_int = sum(P(m+1,:)'.*omega(:))*sum(exp(i*m*phi(1:end-1))*omega_phi);
     Res_int = (sqrt((2*l+1)*factorial(l-m))/sqrt(4*pi*factorial(l+m)))*Res_int;
 else 
