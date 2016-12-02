@@ -1,20 +1,21 @@
 clear all
 
 % Force le code a ne s'executer que sur un seul processeur 
-maxNumCompThreads(1)
+%maxNumCompThreads(1)
 
 % Initialisation des constantes du probleme
 c        = 3*10.0^8;     % Celerite des ondes
 nlambda  = 10;           % Densite de points par longueur d'onde
 
-L = 2;
+L = 10;
 
 journal_plot_params
 
-Num_points = 40; 
+Num_points = 20; 
 
-for m=1:Num_points
+for m=20:(20+Num_points-1)
     
+    disp(' ');
     disp(['Calcul pour m = ', num2str(m)]);
         
     f = 0.1*m*c; 
@@ -111,11 +112,11 @@ for m=1:Num_points
     G_tot = G_tot - diag(diag(G_tot));
     
     
-    % produit matrice vecteur
+    %produit matrice vecteur
     tic
     V = G_tot*rho;
     temps_2(m) = toc;
-    
+   
 end
 
 
