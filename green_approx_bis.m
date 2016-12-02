@@ -1,6 +1,5 @@
 function Res = green_approx_bis(coord,partition,rho,k,theta,omega_theta,phi,omega_phi,L,N)
 
-
 vec = zeros(L+1,1);
 
 for p=0:L

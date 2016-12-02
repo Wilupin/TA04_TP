@@ -7,11 +7,11 @@ clear all
 c        = 3*10.0^8;     % Celerite des ondes
 nlambda  = 10;           % Densite de points par longueur d'onde
 
-L = 10;
+L = 15;
 
 journal_plot_params
 
-Num_points = 20; 
+Num_points = 75; 
 
 for m=20:(20+Num_points-1)
     
@@ -89,33 +89,33 @@ for m=20:(20+Num_points-1)
     temps_1(m) = toc;
     
     
-    
-    % Comparaison avec la valeur calculee directement
-    
-    % Difference selon x
-    [a,b] = meshgrid(coord(:,1), coord(:,1));
-    diff_x = a-b;
-    
-    % Difference selon y
-    [a,b] = meshgrid(coord(:,2), coord(:,2));
-    diff_y = a-b;
-    
-    % Difference selon z
-    [a,b] = meshgrid(coord(:,3), coord(:,3));
-    diff_z = a-b;
-    
-    % Difference selon y
-    G_tot = sqrt(diff_x.^2 + diff_y.^2 +diff_z.^2);
-    G_tot = G_tot + eye(size(G_tot));
-    
-    G_tot = exp(1i*k*G_tot)./G_tot;
-    G_tot = G_tot - diag(diag(G_tot));
-    
-    
-    %produit matrice vecteur
-    tic
-    V = G_tot*rho;
-    temps_2(m) = toc;
+%     
+%     %Comparaison avec la valeur calculee directement
+%     
+%     Difference selon x
+%     [a,b] = meshgrid(coord(:,1), coord(:,1));
+%     diff_x = a-b;
+%     
+%     Difference selon y
+%     [a,b] = meshgrid(coord(:,2), coord(:,2));
+%     diff_y = a-b;
+%     
+%     Difference selon z
+%     [a,b] = meshgrid(coord(:,3), coord(:,3));
+%     diff_z = a-b;
+%     
+%     Difference selon y
+%     G_tot = sqrt(diff_x.^2 + diff_y.^2 +diff_z.^2);
+%     G_tot = G_tot + eye(size(G_tot));
+%     
+%     G_tot = exp(1i*k*G_tot)./G_tot;
+%     G_tot = G_tot - diag(diag(G_tot));
+%     
+%     
+%     %produit matrice vecteur
+%     tic
+%     V = G_tot*rho;
+%     temps_2(m) = toc;
    
 end
 

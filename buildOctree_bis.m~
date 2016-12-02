@@ -6,7 +6,7 @@ partition = struct;
 % Variables utilisees
 %d = 0.3*lambda;
 
-% Variables utilisees
+% Variables utilis?es
 d = 0.5*lambda;
 
 L = 1.0;
