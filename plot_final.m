@@ -1,7 +1,7 @@
 
 journal_plot_params;
 
-load('BonResulat_1.mat');
+load('BonResulat_3.mat');
 
 Num_points = max(size(N))-1;
 
@@ -29,9 +29,9 @@ h_fig = setFigure_bis('Figure temps a');
 
 [hAx, h_temps1, h_temps2] = plotyy(N, temps_1, N_bis, temps_2);
 hold on 
-plot(x, y); 
+plot(x, y, 'color', 'black'); 
 hold on 
-plot(x, y2);
+plot(x, y2, 'color', 'green');
 
 h_axis = gca;
 

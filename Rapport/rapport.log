@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  2 DEC 2016 18:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  2 DEC 2016 21:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1266,76 +1266,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
-<figures/Q2a_4.pdf, id=9, 244.915pt x 154.5775pt>
-File: figures/Q2a_4.pdf Graphic file (type pdf)
- <use figures/Q2a_4.pdf>
-Package pdftex.def Info: figures/Q2a_4.pdf used on input line 99.
-(pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
+<figures/Q2a_5.pdf, id=9, 845.04686pt x 597.50786pt>
+File: figures/Q2a_5.pdf Graphic file (type pdf)
+ <use figures/Q2a_5.pdf>
+Package pdftex.def Info: figures/Q2a_5.pdf used on input line 99.
+(pdftex.def)             Requested size: 238.38506pt x 168.55011pt.
 
-<figures/Q2b_4.pdf, id=10, 244.915pt x 154.5775pt>
-File: figures/Q2b_4.pdf Graphic file (type pdf)
- <use figures/Q2b_4.pdf>
-Package pdftex.def Info: figures/Q2b_4.pdf used on input line 109.
-(pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
+<figures/Q2b_5.pdf, id=10, 845.04686pt x 597.50786pt>
+File: figures/Q2b_5.pdf Graphic file (type pdf)
+ <use figures/Q2b_5.pdf>
+Package pdftex.def Info: figures/Q2b_5.pdf used on input line 109.
+(pdftex.def)             Requested size: 238.38506pt x 168.55011pt.
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./figures/Q1_4.pdf> <./figures/Q2a_4.pdf> <./figures/Q2b_4.pdf>]
+ <./figures/Q1_4.pdf> <./figures/Q2a_5.pdf> <./figures/Q2b_5.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 198--201
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
-
- []
-
-<figures/Q6.pdf, id=542, 244.915pt x 154.5775pt>
+<figures/Q6.pdf, id=600, 244.915pt x 154.5775pt>
 File: figures/Q6.pdf Graphic file (type pdf)
  <use figures/Q6.pdf>
-Package pdftex.def Info: figures/Q6.pdf used on input line 355.
+Package pdftex.def Info: figures/Q6.pdf used on input line 364.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
-<figures/Q6b_2.pdf, id=545, 244.915pt x 154.5775pt>
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
+
+ []
+
+<figures/Q6b_2.pdf, id=603, 244.915pt x 154.5775pt>
 File: figures/Q6b_2.pdf Graphic file (type pdf)
  <use figures/Q6b_2.pdf>
-Package pdftex.def Info: figures/Q6b_2.pdf used on input line 396.
+Package pdftex.def Info: figures/Q6b_2.pdf used on input line 419.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
-<figures/Q7.pdf, id=547, 244.915pt x 154.5775pt>
+[4 <./figures/Q6.pdf>] <figures/Q7.pdf, id=1048, 244.915pt x 154.5775pt>
 File: figures/Q7.pdf Graphic file (type pdf)
- <use figures/Q7.pdf>
-Package pdftex.def Info: figures/Q7.pdf used on input line 422.
+
+<use figures/Q7.pdf>
+Package pdftex.def Info: figures/Q7.pdf used on input line 439.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
- [4 <./figures/Q6.pdf> <./figures/Q6b_2.pdf>] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--450
+
+ []
+
+
 AED: lastpage setting LastPage
-[5 <./figures/Q7.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 444.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 444.
+[5 <./figures/Q6b_2.pdf> <./figures/Q7.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 472.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 472.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 444.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 444.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 472.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 472.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 444.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 472.
  ) 
 Here is how much of TeX's memory you used:
- 19406 strings out of 493089
- 321937 string characters out of 6134841
- 535154 words of memory out of 5000000
- 22543 multiletter control sequences out of 15000+600000
+ 19411 strings out of 493089
+ 321995 string characters out of 6134841
+ 524232 words of memory out of 5000000
+ 22548 multiletter control sequences out of 15000+600000
  25065 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,17n,45p,10515b,549s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,17n,45p,10515b,540s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></u
@@ -1371,10 +1381,10 @@ ic/cm-super/sfti0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
 /cm-super/sfti0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/c
 m-super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/stm
 aryrd/stmary10.pfb>
-Output written on rapport.pdf (5 pages, 724518 bytes).
+Output written on rapport.pdf (5 pages, 778102 bytes).
 PDF statistics:
- 1187 PDF objects out of 1200 (max. 8388607)
- 1098 compressed objects within 11 object streams
+ 1245 PDF objects out of 1440 (max. 8388607)
+ 1141 compressed objects within 12 object streams
  50 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -92,22 +92,22 @@ Nous notons $\tau_{a}$ le temps d'assemblage de cette matrice. Soit maintenant u
 
 Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l'assemblade de la matrice est trop gourmand en mémoire et cela rend l'execution sous Matlab impossible. Nous avons donc fait varier $f$ à $n_\lambda$ fixé pour avoir, d'après \refeq{N}, une valeur de $N$ maximale de 9002. Puis nous avons représenté en \refig{Q2a} et \refig{Q2b} l'évolution de $\tau_a$ et $\tau_c$ en fonction de $N$.
 
-
+\vspace*{-11pt}
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.95\columnwidth]{Q2a_4.pdf}
-  \vspace*{-11pt}
+  \includegraphics[width=0.95\columnwidth]{Q2a_5.pdf}
+  \vspace*{-20pt}
   \caption{Temps d'assemblage de $\G$, $\tau_a$ (losanges rouge) et temps de calcul du produit matrice vecteur $\tau_c$ (ronds bleu) en fonction de $N$. Les deux courbes ont une allure parabolique mais nous pouvons remarquer que, les echelles étant différentes, le temps d'assemblage est plus long}
   \label{fig:Q2a}
   \end{center}
 \end{figure}
-\vspace*{-30pt}
+\vspace*{-40pt}
 
 \begin{figure}[H]
   \begin{center}
-  \includegraphics[width=0.95\columnwidth]{Q2b_4.pdf}
-  \vspace*{-11pt}
+  \includegraphics[width=0.95\columnwidth]{Q2b_5.pdf}
+  \vspace*{-20pt}
   \caption{Temps d'assemblage de $\G$, $\tau_a$ (losanges rouge) et temps de calcul du produit matrice vecteur $\tau_c$  (ronds bleu) en fonction de $N$. Asymptotiquement $\log(\tau_{a/c}) \simeq 2\log(N)+K_{a/c}$ représentées en pointillé vert avec $K_{a/c}$ constante.}
   \label{fig:Q2b} 
   \end{center}
@@ -281,7 +281,7 @@ Cependant pour $p\in\bbrac{0,L}$ comme notre quadrature intègre exactement les 
 G(\xv,\yv) = ikh^{(1)}_{0}(k|\rv_0|)
 \end{equation}
 
-Nous avons un résultat analytique très pratique pour vérifier le code. Ceci nous permet en outre de confirmer le choix des fonctions de Hankel et le bon fonctionnement de la quadrature sur les polynômes de Legendre. 
+Nous avons un résultat analytique très pratique pour vérifier le code. Ceci nous permet en outre de confirmer le choix des fonctions de Hankel et vérifier la quadrature sur les polynômes de Legendre. 
 
 
 
@@ -289,7 +289,7 @@ Nous avons un résultat analytique très pratique pour vérifier le code. Ceci n
 
 \subsection*{3. Resultats}
 
-Pour nous assurer du bon fonctionnement de notre code nous avons calculé différentes valeurs de la fonction de green en différents points en faisant varier $k$ et $L_q$. Nous notons $G_{\simeq}(\xv, \yv)$ l'approximation de la fonction de Green calculée aux points $\xv$ et $\yv$.  Nous introduisons aussi 
+Pour nous assurer du bon fonctionnement de notre code nous avons calculé différentes valeurs de la fonction de green en différents points en faisant varier les différents paramètres du probleme en Tab.~ref{tab:Q5}. Nous notons $G_{\simeq}(\xv, \yv)$ l'approximation de la fonction de Green calculée aux points $\xv$ et $\yv$.  Nous introduisons aussi 
 
 
 \begin{align}
@@ -298,46 +298,58 @@ Pour nous assurer du bon fonctionnement de notre code nous avons calculé diffé
 \end{align}
 
 
+Il s'agit d'une grandeur représentant l'erreur relative de notre calcul. Elle permet d'estimer si le calcul par décomposition en onde plane est valable ou pas selon la précision désirée.
+
+%\vspace*{10pt}
+
 \end{multicols}
 
-\rule{8cm}{1pt}
+%\rule{8cm}{1pt}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{m{0.5cm} m{0.5cm} | m{2cm} m{2cm} m{2cm} m{2cm} | m{2cm} m{2cm} m{1cm}} 
+\begin{tabular}{m{1.5cm} m{0.5cm} | m{2cm} m{2cm} | m{3.5cm} m{3.5cm} m{1cm}} 
    \hline
-    $k$ & $L_G$ & $\xv/L$ & $\yv/L$ & $\xv_0/L$ & $\yv_0/L$ & $G(\xv, \yv)$ & $G_{\simeq}(\xv,\yv)$ & $\varepsilon$ (\%) \\
+    $k$ (m$^{-1}$)& $L_G$ & $\|\xv-\xv_0\|_{2}/L$ & $\|\yv-\yv_0\|_{2}/L$ & $G(\xv, \yv)$ & $G_{\simeq}(\xv,\yv)$ & $\varepsilon$ (\%) \\
     \toprule
     \toprule
-    $4\pi$ & 2 & (0 0 0) & (1.5 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & $-0.25 + 0.55i$ & $-0.25 + 0.55i$ & $10^{-18}$\\
-    $4\pi$ & 10 & (0 0 0) & (1 0.5 0.5) & (0 0 0) & (1.5 0.5 0.5) & $-0.25 + 0.55i$ & $-0.25 + 0.55i$ & $10^{-18}$\\ \hline
-    $4\pi$ & 5 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\
-    $4\pi$ & 10 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\ \hline
-    $4\pi$ & 5 & (0.1 0.1 0.1) & (0.3 0.3 0.3) & (0 0 0) & (0.3 0.3 0.3) & 0 & 0 & 0\\
-    $4\pi$ & 5 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\
-    $4\pi$ & 10 & (0.1 0.1 0.1) & (1.1 0.4 0.6) & (0 0 0) & (1.5 0.5 0.5) & 0 & 0 & 0\\ \hline
-    $4\pi$ & 5 & (0.1 0.1 0.1) & (0.3 0.3 0.3) & (0 0 0) & (0.3 0.3 0.3) & 0 & 0 & 0\\
+    4$\pi$ & $2$ & $0$ & $0$ & $-0.7757+0.2548i$ & $-0.7757+0.2548i$ & $10^{-9}$ \\ \hline
+	4$\pi$ & $5$ & $0.7348$ & $0$ & $+0.8619+1.4826i$ & $+0.4170+0.8020i$ & $47$ \\
+	4$\pi$ & $5$ & $0.8124$ & $0$ & $+1.9460+0.2434i$ & $+1.1706+0.1575i$ & $39$ \\
+	4$\pi$ & $5$ & $0$ & $0.7348$ & $+0.8619+1.4826i$ & $+0.4170+0.8020i$ & $47$ \\ \hline
+	4$\pi$ & $2$ & $0.6403$ & $0$ & $-1.2605+0.6098i$ & $-0.0623+0.1863i$ & $90$ \\
+	4$\pi$ & $5$ & $0.6403$ & $0$ & $-1.2605+0.6098i$ & $-0.6357+0.2251i$ & $52$ \\
+	4$\pi$ & $10$ & $0.6403$ & $0$ & $-1.2605+0.6098i$ & $-1.2714+0.5840i$ & $1$ \\
+	4$\pi$ & $15$ & $0.6403$ & $0$ & $-1.2605+0.6098i$ & $-1.2608+0.6097i$ & $10^{-4}$\\ \hline 
+	4$\pi$ & $20$ & $0.1732$ & $0.7348$ & $+1.8888-1.0929i$ & $+1.8839-1.0929i$ & $0.2$ \\
+	6$\pi$ & $20$ & $0.1732$ & $0.7348$ & $-1.5408+1.5452i$ & $-1.6159+1.4707i$ & $4$ \\
+	8$\pi$ & $20$ & $0.1732$ & $0.7348$ & $+1.0875-1.8919i$ & $+1.1657-0.5835i$ & $60$ \\ \hline
+	4$\pi$ & $50$ & $0.1732$ & $0.7348$ & $+1.8888-1.0929i$ & $+93237+304181i$ & $10^{7}$ \\
     \hline
 \end{tabular}
 \caption{Résultat de la décomposition en ondes planes}
+\label{tab:Q5}
 \end{table}
 
 
-
-\hfill\rule{8cm}{1pt}
+%\hfill\rule{8cm}{1pt}
 
 \begin{multicols}{2}
 
-Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ nous obtenons un resultat exact même pour $L_G=2$ qui est la plus petite valeur accessible dans notre code.  
+Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ nous obtenons un resultat exact même pour $L_G=2$ qui est la plus petite valeur accessible dans notre code, ce qui correspond à notre cas test développé en sous-section 2.\\
+\indent
+La variation de $\xv$, $\xv_0$, $\yv$ et $\yv_0$ aux autres paramètres fixés nous apprend que le résultat dépend modérément de la direction de $\xv$ (resp. $\yv$) par rapport à $\xv_0$ (resp. $\yv_0$) mais que ce sont avant tous les normes des différences qui sont importantes. De plus $k$ a aussi une influence et ce sont plus exactement les produits $k\|\xv-\xv_0\|_{2}/L$ et $k\|\yv-\yv_0\|_{2}/L$ qui jouent finalement un rôle important. \\
+\indent
+Lorsque l'on regare l'influence de $L_G$, plus il est numériquement grand et plus le résltat est précis, comme nous pouvions nous y attendre, jusqu'à un certain point où l'on commence à avoir divergence à cause des fonctions de Hankel. En conclusion suivant la différence maximale autorisée entre $\xv$ et $\xv_0$ (resp. $\yv$ et $\yv_0$) il sera necessaire d'avoir un $L_G$ plus ou moins grand pour avoir une bonne précision. En revanche pour savoir quel sera le bon $L_G$ à choisir on se reportera à l'étude donnant la figure \refig{Q6b}. 
 
-\vspace*{22pt}
+\vspace*{11pt}
 
 
 \section*{Question 6}
 
 \subsection*{1. Partitionnement}
 
-Nous avons réalisé le partitionnement, correspondant à un niveau de ce qu'aurait été l'octree dans un algorithme multi-niveau dans un fonction nous renvoyant une structure nommée \textbf{partition}. Les attributs essentiels de cette structure Matlab sont trois tableaux : \\
+Nous avons réalisé le partitionnement (c.f. \refig{Q6}), correspondant à un niveau de ce qu'aurait été l'octree dans un algorithme multi-niveau dans un fonction nous renvoyant une structure nommée \textbf{partition}. Les attributs essentiels de cette structure Matlab sont trois tableaux : \\
 
 \begin{itemize}
 \item du numéro des noeuds dans chaque boite. 
@@ -345,10 +357,7 @@ Nous avons réalisé le partitionnement, correspondant à un niveau de ce qu'aur
 \item des coordonnées du centre de chaque boite. 
 \end{itemize}
 
-\vspace*{10pt}
-Même si l'on ne prend pas en compte cette étape dans le temps de calcul du produit matrice vecteur il est bon d'essayer de ne pas la rendre trop longue. Pour ce faire nous n'avons réalis,é pour la création des boites de la partition et l'extraction des noeuds qui y appartiennent, que des boucles sur au maximum le nombre de boite et jamais sur le nombre de noeuds total qui est bien plus important. De plus pour ne pas surcharger la mémoire et comme beacoup des tableaux de \textbf{partition} sont creux nous avons utilisé une définition en tant que \textit{sparse} de ces matrices/tableaux. \\
-
-
+\vspace*{22pt}
 
 \begin{figure}[H]
   \begin{center}
@@ -358,6 +367,12 @@ Même si l'on ne prend pas en compte cette étape dans le temps de calcul du pro
   \label{fig:Q6}
   \end{center}
 \end{figure}
+
+Même si l'on ne prend pas en compte cette étape dans le temps de calcul du produit matrice vecteur il est bon d'essayer de ne pas la rendre trop longue. Pour ce faire nous n'avons réalis,é pour la création des boites de la partition et l'extraction des noeuds qui y appartiennent, que des boucles sur au maximum le nombre de boite et jamais sur le nombre de noeuds total qui est bien plus important. De plus pour ne pas surcharger la mémoire et comme beacoup des tableaux de \textbf{partition} sont creux nous avons utilisé une définition en tant que \textit{sparse} de ces matrices/tableaux. \\
+
+
+
+
 
 \subsection*{2. Algorithme FMM}
 
@@ -387,8 +402,16 @@ Nous avons regardé l'erreur et norme $\| \text{ . }\|_{2}$ et en norme $\| \tex
 \eta_{\infty} = \frac{\| (\G - \G_{\simeq})\rhov \|_{\infty}}{\| \G\rhov \|_{\infty}} 
 \end{equation}
 
-La figure \refig{Q6b} montre, pour $\rhov$ = \textbf{1} (vecteur ayant toutes ces composantes à 1), l'évolution de ces coefficients avec $L_G$. 
+La figure \refig{Q6b} montre, pour $\rhov$ = \textbf{1} (vecteur ayant toutes ces composantes à 1), l'évolution de ces coefficients avec $L_G$. \\
 
+
+Nous remarquons qu'il y a un point de minimum. Avec la formule du cours nous avons une estimation de la valeur de $L_G$ à choisir pour se placer à ce minimum : 
+
+\begin{equation}
+	L_G = \sqrt{3}kd + 7.5\log{\(\sqrt{3}kd+\pi\)}
+\end{equation}
+
+Nous trouvons qu'alors $L_G=17$ au point. Sur notre graphique nous remarquons un minimum en $L_G=20$ ce qui est convenablement proche. Avec des erreurs relatives qui sont alors très faibles. 
 
 
 \begin{figure}[H]
@@ -401,13 +424,7 @@ La figure \refig{Q6b} montre, pour $\rhov$ = \textbf{1} (vecteur ayant toutes ce
 \end{figure}
 \vspace*{-22pt}
 
-Nous remarquons qu'il y a un point de minimum. Avec la formule du cours nous avons une estimation de la valeur de $L_G$ à choisir pour se placer à ce minimum : 
 
-\begin{equation}
-	L_G = \sqrt{3}kd + 7.5\log{\(\sqrt{3}kd+\pi\)}
-\end{equation}
-
-Nous trouvons qu'alors $L_G=17$ au point. Sur notre graphique nous remarquons un minimum en $L_G=20$ ce qui est convenablement proche. Avec des erreurs relatives qui sont alors très faibles. 
 
 
 \vspace*{22pt}
@@ -415,13 +432,13 @@ Nous trouvons qu'alors $L_G=17$ au point. Sur notre graphique nous remarquons un
 \section*{Question 7}
 
 
-Nous montrons en \refig{Q7} l'évolution du temps de calcul $\tau_{FMM}$ par la méthode FMM et $\tau_{class}$par la méthode classique du produit matrice vecteur en fonction de $N$. Pour augmenter le nombre de points nous fixons $n_\lambda = 10$ et nous faisons varier la fréquence entre $0.2c/L$ et $5c/L$. Nous fixons $d=0.5\lambda$ à chaque itération pour cette figure et $L=10$ afin d'avoir une précision correcte sans pour autant trop alourdir le calcul déjà long que sa conception nécessite. En effet à $N \sim 2000$ le code met déjà 1 minutes. 
+Nous montrons en \refig{Q7} l'évolution du temps de calcul $\tau_{FMM}$ par la méthode FMM et $\tau_{class}$ par la méthode classique du produit matrice vecteur en fonction de $N$. Pour augmenter le nombre de points nous fixons $n_\lambda = 10$ et nous faisons varier la fréquence entre $0.2c/L$ et $5c/L$. Nous fixons $d=0.5\lambda$ à chaque itération pour cette figure et $L=10$ afin d'avoir une précision correcte sans pour autant trop alourdir le calcul déjà long que sa conception nécessite. En effet à $N \sim 2000$ le code met déjà 1 minute pour s'executer.
 
 \begin{figure}[H]
   \begin{center}
   \includegraphics[width=0.95\columnwidth]{Q7.pdf}
   \vspace*{-11pt}
-  \caption{Evolution du temps de calcul du produit matrice vecteur par la méthode classique $\tau_{class}$ (rouge) et par la méthode FMM $\tau_{FMM}$ (bleu) avec $N$. Les courbes jaunes et vertes correspondents aux modélisations en loi de puissance réalisés avec Matlab.}
+  \caption{Evolution du temps de calcul du produit matrice vecteur par la méthode classique $\tau_{class}$ (rouge) et par la méthode FMM $\tau_{FMM}$ (bleu) avec $N$. Les courbes vertes et noires correspondents aux modélisations en loi de puissance réalisés avec Matlab.}
   \label{fig:Q7}
   \end{center}
 \end{figure}
@@ -429,13 +446,24 @@ Nous montrons en \refig{Q7} l'évolution du temps de calcul $\tau_{FMM}$ par la 
 
 Nous remarquons que, même si cela ne parait pas évident à cause des echelles différentes mises en jeu sur la figure, la courbe de $\tau_{FMM}$ décroit moins vite que celle de $\tau_{class}$. Afin de vérifier cette tendance sont représentés en en jaune et vert les courbes de meilleures interpolations avec les équations suivantes : $\tau_{FMM} \simeq 1.63\times10^{-4} \times N^{1.55}$ (s) et $\tau_{class} \simeq 1.97\times10^{-9}  N^{1.95}$ (s). Même en utilisant l'option \textit{-singleCompThread} de Matlab la complexité du produit classique est légérement en dessous de la complexité théorique ceci peut s'expliquer par le fait qu'il nous aurait fallu peut être plus de pointsà N plus grand pour ne prendre en compte que le comportmeent asymptotique. Malgré cela nous ne somme pas loin de la complexité théorique et ceci nous permet de voir que notre méthode FMM se rapproche aussi de sa complexité théorique en $O(N^{3/2})$. \\
 \indent
-Cependant, nous observons une courbe sui évolue par \textit{paliers}. Sachant que sur chaque \textit{palier} le nombre de partition est constant nous pouvons en conclure qu'en augmentant la fréquence, nous rajoutons par étapes des partitions et aisni nous obtenons une augmentation par petits sauts du temps. 
+Cependant, nous observons une courbe qui évolue par \textit{paliers}. Sachant que sur chaque \textit{palier} le nombre de partition est constant nous pouvons en conclure qu'en augmentant la fréquence, nous rajoutons par étapes des partitions du maillage et ainsi nous obtenons une augmentation par sauts du temps. \\
+
+\indent
+Nous avons aussi pu remarquer que pour atteindre les 5 minutes d'exectution de code avec $L_G = 15$ il nous faut environ $N \sim 9000$. Nous remarquons aussi que l'évolution en palier demande de bien maitriser le découpage et la répartition des partitions pour ne pas perdre de temps dès que l'on augmente le nombre de points. En effet pour un maximum de 9000 points avec $L_G = 15$ nous avons observé une loi de puissance en $O(N^{1.7})$ ce qui reste tout de même mieux que la loi en $O(N^{2})$.
 
 
 \vspace*{22pt}
 \section*{Question 8}
 
 Nous pouvons remarquer que bien que malgrès une complexité plus avantageuse et nos effort pour le rendre le plus rapide possible ce nouveau algorithme met plus de temps à s'executer que le produit réalisé classiquement pour le nombre de points (qui reste relativement faible) que nous aons pu tester. En effet nous avons pour $N = 6012$, un temps $\tau_{FMM} = 108$ s et $\tau_{class} = 0.05$ s. Nous pouvons dire, en comparant les deux courbes de la question précédente  et de la question 2 qu'il faudrait atteindre $N \sim 10^{7}$ pour que l'utilisation de la FMM mono-niveau soit, dans ce cas, utile si l'on prend en compte le temps d'assemblage de la matrice dans la méthode classique. Ce nombre est trop malheureusement important et il serait necessaire de réussir à optimiser le temps d'éxecution du code de manière générale ou de passer par un algorithme multi-niveaux.
+
+
+
+
+%\section*{Annexe}
+
+
+
 
 \end{multicols}
 
