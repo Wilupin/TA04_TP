@@ -7,7 +7,9 @@ partition = struct;
 %d = 0.3*lambda;
 
 % Variables utilisees
-d = 0.5*lambda;
+%d = 0.5*lambda;
+
+d = 0.5*0.3;
 
 L = 1.0;
 l = 0.5;
