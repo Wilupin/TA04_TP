@@ -4,15 +4,15 @@ c = 3*10.0^8;
 f = 2*c;
 k = (2*pi*f)/c;
 
-L = 50;
+L = 500;
 
 [theta, omega, phi, omega_phi] = quadrature(L);
 
-x = [0.1 0.1 0.1];
-y = [0.5 0 0.3];
+x = [10 10 10];
+y = [30 30 30];
 
 x0 = [0    0    0];
-y0 = [1    0.5    0.5];
+y0 = [20    20    20];
 
 normXY = sqrt((x-y)*(x-y)');
 normX  = sqrt((x-x0)*(x-x0)');

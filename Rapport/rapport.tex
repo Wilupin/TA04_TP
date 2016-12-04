@@ -48,14 +48,14 @@ Gaétan Facchinetti \\
 
 \section*{Question 1}
 
-Nous avons créer une fonction permettant de renvoyer, pour une densité de point par longueur d'ondre $n_\lambda$ et une fréquence $f$ donnée, un tableau de coordonnées de l'ensemble des points du nuages ainsi que le nombre de $N$ points. Dans notre code ce nombre de points se calcule en fonction des paramètres par la formule, 
+Nous avons créé une fonction permettant de renvoyer, pour une densité de point par longueur d'onde $n_\lambda$ et une fréquence $f$donnée, un tableau de coordonnées de l'ensemble des points du nuages ainsi que le nombre $N$ de points. Ce nombre de points se calcule aussi directement en fonction des paramètres par la formule, 
 
 \begin{equation}
 N = 4s_a(s_b-1) + 2(s_b-2)^{2}
 \label{eq:N}
 \end{equation}
 
-Avec $s_a = \mathbb{E}(f n_\lambda L/c)+1$ et $s_b = \mathbb{E}(f n_\lambda l/c)+1$, où $L=1$ (m) et $l=0.5$ (m) sont les dimensions de la boite et $c$ la célérité de l'onde dans le milieu considéré Nous avons alors pu représenter en \refig{Q1} les points de discrétisation.
+Avec $s_a = \mathbb{E}(f n_\lambda L/c)+1$ et $s_b = \mathbb{E}(f n_\lambda l/c)+1$, où $L=1$ (m) et $l=0.5$ (m) sont les dimensions de la boite et $c$ la célérité de l'onde dans le milieu considéré. Nous avons alors représenté en \refig{Q1} les points de discrétisation.
 
 
 \begin{figure}[H]
@@ -75,7 +75,7 @@ Avec $s_a = \mathbb{E}(f n_\lambda L/c)+1$ et $s_b = \mathbb{E}(f n_\lambda l/c)
 
 \section*{Question 2}
 
-Notons, pour $i \in \bbrac{1,N}$, $\xv_i$ le vecteur position du point du nuage indicé $i$. Introduisons alors la matrice de la fonction de Green G que nous definissons par $\G$ avec pour tout $(i,j) \in \bbrac{1,N}^{2}$ :
+Notons, pour $i \in \bbrac{1,N}$, $\xv_i$ le vecteur position du point du nuage indicé $i$. Introduisons alors la matrice de la fonction de Green G que nous définissons par $\G$ avec pour tout $(i,j) \in \bbrac{1,N}^{2}$ :
 
 \begin{equation}
  \G_{i,j} =
@@ -90,7 +90,7 @@ Notons, pour $i \in \bbrac{1,N}$, $\xv_i$ le vecteur position du point du nuage 
 
 Nous notons $\tau_{a}$ le temps d'assemblage de cette matrice. Soit maintenant un vecteur $\rhov$ quelconque de $\R^{N}$. Nous notons $\tau_c$ le temps de calcul du produit matrice vecteur $\Vv = \G\rhov$.\\
 
-Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l'assemblade de la matrice est trop gourmand en mémoire et cela rend l'execution sous Matlab impossible. Nous avons donc fait varier $f$ à $n_\lambda$ fixé pour avoir, d'après \refeq{N}, une valeur de $N$ maximale de 9002. Puis nous avons représenté en \refig{Q2a} et \refig{Q2b} l'évolution de $\tau_a$ et $\tau_c$ en fonction de $N$.
+Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l’assemblage de la matrice est trop gourmand en mémoire et cela rend l’exécution sous Matlab impossible. Nous avons donc fait varier $f$ à $n_\lambda$ fixé pour avoir, d'après \refeq{N}, une valeur de $N$ maximale de 9002. Puis nous avons représenté en \refig{Q2a} et \refig{Q2b} l'évolution de $\tau_a$ et $\tau_c$ en fonction de $N$.
 
 \vspace*{-11pt}
 
@@ -98,7 +98,7 @@ Nous pouvons remarquer qu'à partir de $N \sim 10 000$ l'assemblade de la matric
   \begin{center}
   \includegraphics[width=0.95\columnwidth]{Q2a_5.pdf}
   \vspace*{-20pt}
-  \caption{Temps d'assemblage de $\G$, $\tau_a$ (losanges rouge) et temps de calcul du produit matrice vecteur $\tau_c$ (ronds bleu) en fonction de $N$. Les deux courbes ont une allure parabolique mais nous pouvons remarquer que, les echelles étant différentes, le temps d'assemblage est plus long}
+  \caption{Temps d'assemblage de $\G$, $\tau_a$ (losanges rouge) et temps de calcul du produit matrice vecteur $\tau_c$ (ronds bleu) en fonction de $N$. Les deux courbes ont une allure parabolique mais nous pouvons remarquer que, les échelles étant différentes, le temps d'assemblage est plus long}
   \label{fig:Q2a}
   \end{center}
 \end{figure}
@@ -126,7 +126,7 @@ Comme montré en \refig{Q2b}, l'évolution du logarithme de $\tau_a$ avec $N$ te
 
 \section*{Question 3}
 
-Nous avons calculé la quadrature de Gauss-Legendre à $L_q$ points en diagonsalisant la matrice tridiagonale définie dans l'énoncé. La methode utiliséé pour obtenir les points de quadrature est la méthode de Golub-Welsh\footnote{\textit{Calculation of Gauss Quadrature Rules}, G.H. Golub and J.H. Welsh \color{cyan}, Math. Comp. 23 (1969), 221-230 \color{black}, (Apr., 1969)}. Avec les notations du TP et $L_q$ le nombre de points de quadrature (à ne pas confondre avec $L$ la longueur du pavé) nous calculons, pour P polynôme tel que $\text{deg}P \le 2L_q-1$,
+Nous avons calculé la quadrature de Gauss-Legendre à $L_q$ points en diagonalisant la matrice tridiagonale définie dans l'énoncé. La méthode utilisée pour obtenir les points de quadrature est la méthode de Golub-Welsh\footnote{\textit{Calculation of Gauss Quadrature Rules}, G.H. Golub and J.H. Welsh \color{cyan}, Math. Comp. 23 (1969), 221-230 \color{black}, (Apr., 1969)}. Avec les notations du TP et $L_q$ le nombre de points de quadrature (à ne pas confondre avec $L$ la longueur du pavé) nous calculons, pour P polynôme tel que $\text{deg}P \le 2L_q-1$,
 
 \begin{equation}
 	\int_{-1}^{1}{P(t)dt} = \sum_{i=1}^{L_q}{\omega_i P(\lambda_i)}
@@ -138,7 +138,7 @@ Ceci est équivalent, par un changement de variable, à
 	\int_{0}^{\pi}{P(\cos(t))\sin(t)dt} = \sum_{i=1}^{L_q}{\omega_i P(\cos(\theta_i))}
 \end{equation}
 
-Nous avons testé cette quadrature avec $L_q = 3$ en comparaison de celle à 3 points dévleoppée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la qudrature effectuée par Matlab et $I_v$ la valeur vraie pour l'integration de la fonction polynomiale $P$.
+Nous avons testé cette quadrature avec $L_q = 3$ en comparaison de celle à 3 points développée lors du premier TP. Nous écrivons $I_{GL}$ le résultat par la quadrature de Gauss Legendre, $I_{1}$ le résultat pour la quadrature à trois points du premier TP, $I_{M}$ le résultat de la quadrature effectuée par Matlab et $I_v$ la valeur vraie pour l’intégration de la fonction polynomiale $P$.
 
 \begin{table}[H]
 \centering
@@ -155,7 +155,7 @@ Nous avons testé cette quadrature avec $L_q = 3$ en comparaison de celle à 3 p
 \caption{Résultat des quadratures numériques}
 \end{table}
 
-Comme attendu nous observons que pour la quadrature de Gauss-Legendre donne les même resultats pour des polynômes de degré inférieur ou égal à 3 que la quadrature du premier TP. En revanche, comme nous pouvions nous y attendre cette nouvelle quadrature nous permet d'avoir une solution correcte pour des polynomes de degré 4 et 5, puisque la formule est bien exacte jusqu'au degé $2L_q-1$, ce que nous n'avions pas avant. 
+Comme attendu nous observons que pour la quadrature de Gauss-Legendre donne les même résultats pour des polynômes de degré inférieur ou égal à 3 que la quadrature du premier TP. En revanche, comme nous pouvions nous y attendre cette nouvelle quadrature nous permet d'avoir une solution correcte pour des polynômes de degré 4 et 5, puisque la formule est bien exacte jusqu'au degé $2L_q-1$, ce que nous n'avions pas au premier TP. 
 
 
 \vspace*{12pt}
@@ -177,7 +177,7 @@ En notant $I_{Y_{lm}}$ l'intégrale de $Y_{lm}$ sur la sphère unité (nous note
 I_{Y_{lm}} = C_{l,m}\int_{0}^{\pi}{P_l^{m}\(\cos(\theta)\)\sin(\theta)d\theta}\int_{0}^{2\pi}e^{im\phi}d\phi
 \end{equation}
 
-Ainsi si $m \neq 0$ l'integrale sur $\phi$ donne directement $I = 0$.  De plus, d'après d'autres propriétés des polynomes de Legendre, la quadrature totale doit alors satisfaire les égalités suivantes :
+Ainsi si $m \neq 0$ l’intégrale sur $\phi$ donne directement $I = 0$.  De plus, d'après d'autres propriétés des polynômes de Legendre, la quadrature totale doit alors satisfaire les égalités suivantes :
 \begin{equation}
 \sum_{i,j}{\omega_i \omega_j Y_{lm}(\theta_j, \phi_i)} = 
 	\begin{cases}
@@ -195,9 +195,9 @@ En particulier, la quadrature sur $\phi$ doit vérifier :
 	\end{cases}
 \end{equation}
 
-Nous avons réalisé une quadraturre à $L_q+1$ points en $\theta$ et $2L_q+1$ points en $\phi$. Nous notons une intégration exacte, à erreur d'arrondi machine de l'ordre de $10^{-16}$, pour toute les harmoniques sphériques avec $l\le 2L_q$. Cependant pour $l = 2L_q+1$ nous pouvons commencer à remarquer des écarts (dus à la quadrature sur $\phi$) puisque le code nous donne une valeur numérique $I_{GL-Y_{lm}} = 2.576$ alors que $I_{Y_{lm}} = 0$ pour $Y_{l=9,m=9}$ en utilisant $L_q = 4$. Pour $l$ encore supérieur la quadrature sur $\theta$ donne aussi des valeurs éronnées et les résultats ne sont plus satisfaisants.\\
+Nous avons réalisé une quadrature à $L_q+1$ points en $\theta$ et $2L_q+1$ points en $\phi$. Nous notons une intégration exacte, à erreur d'arrondi machine de l'ordre de $10^{-16}$, pour toute les harmoniques sphériques avec $l\le 2L_q$. Cependant pour $l = 2L_q+1$ nous pouvons commencer à remarquer des écarts (dus à la quadrature sur $\phi$) puisque le code nous donne une valeur numérique $I_{GL-Y_{lm}} = 2.576$ alors que $I_{Y_{lm}} = 0$ pour $Y_{l=9,m=9}$ en utilisant $L_q = 4$. Pour $l$ encore supérieur la quadrature sur $\theta$ donne aussi des valeurs erronées et les résultats ne sont plus satisfaisants du tout.\\
 \indent
-Nous aurions pu utiliser toute autre quadrature de Gauss, de Simpsons, etc. L'avantage de cette quadrature ci et d'intégrer exactement les harmoniques sphériques et de donner donc de très bon résultats pour nos expressions qui peuvent se décomposer avec une très bonne approximation sur une base constituée d'un nombre limité d'entre elles. Le deuxième avantage qui apparait est qu'il faut un nombre de points $(L_q+1)(2L_q+1)$ pour pouvoir intégrer exactement des harmoniques sphériques jusqu'à l'ordre $l=2L_q$ et ainsi utiliser un nombre de points restreint. \\
+Nous aurions pu utiliser toute autre quadrature de Gauss, de Simpson, etc. L'avantage de cette quadrature ci et d'intégrer exactement les harmoniques sphériques (et de donner donc de très bon résultats pour nos expressions qui peuvent se décomposer avec une très bonne approximation sur une base constituée d'un nombre limité d'entre elles). Le deuxième avantage qui apparaît est qu'il faut un nombre de points $(L_q+1)(2L_q+1)$ pour pouvoir intégrer exactement des harmoniques sphériques jusqu'à l'ordre $l=2L_q$ et ainsi calculer sur un nombre de points restreint. \\
 
 
 %\vspace*{22pt}
@@ -234,28 +234,28 @@ Nous souhaitons calculer la décomposition en onde plane de la fonction de green
 \end{equation}
 
 
-L'intégrale sur la sphére unité est alors calculée par la quadrature déterminée dans la question précédente. En effet, la largeur de bande de l'équation a intégrer étant de $2L_G$ comme nous intégrons quasiment exactement avec une quadrature de $L_q$ en $\theta$ et $2L_q+1$ et $\phi$ les harmoniques sphériques $Y_{lm}$ avec $l \le 2L_q$ nous prenons ici une quadrature de $L_G+1$ points en $\theta$ et $2L_G+1$ points en $\phi$. \\
+L'intégrale sur la sphère unité est calculée par la quadrature déterminée dans la question précédente. En effet, la largeur de bande de l'équation à intégrer étant de $2L_G$ comme nous intégrons très bien avec une quadrature de $L_q$ en $\theta$ et $2L_q+1$ et $\phi$ les harmoniques sphériques $Y_{lm}$ avec $l \le 2L_q$ nous prenons une quadrature de $L_G+1$ points en $\theta$ et $2L_G+1$ points en $\phi$ (ce qui revient à prendre $L_q=L_G$. \\
 \indent
-De plus, il faut être prudent et utiliser ici les fonctions de hankel sphériques et non celles définies sous Matlab avec la denomination \textit{besselh}. Ces fonctions sont définies par, pour $(z,p) \in \R^{*}_{+}\times\N$,
+De plus, il faut être prudent et utiliser ici les fonctions de Hankel sphériques et non celles définies sous Matlab avec la dénomination \textit{besselh}. Ces fonctions sont définies par, pour $(z,p) \in \R^{*}_{+}\times\N$,
 
 \begin{equation}
 	h^{(1)}_{p}(z) = e^{iz}\sum_{k=0}^{p}{\frac{(p+k)!}{2^{k}(p-k)!}\frac{1}{z^{k+1}}}
 \end{equation}
 
-Pour être plus rapide dans le code ces fonctions sont en réalité calculées à l'aide de la formule de récurrence suivante. Ceci est pratique puisque nous avons besoin de toutes les fonctions de hankel jusuqu'à l'ordre $L$.
+Pour être plus rapide dans le code ces fonctions sont en réalité calculées à l'aide de la formule de récurrence suivante. Ceci est pratique puisque nous avons besoin de toutes les fonctions de Hankel jusqu'à l'ordre $L_G$.
 
 \begin{equation}
 	h_{p+1}^{(1)}(z) =  \frac{2p+1}{z}h_{p}^{(1)}(z) - h_{p-1}^{(1)}(z) 
 \end{equation}
 
-De même, par souci de rapidité, nous n'utilisons pas non plus la fonction \textit{legendreP} intégrée au logiciel pour récupérer la valeur des polynômes de Legendre. Nous procédons aussi avec une formule de récurrence, ceci nous ayant permis d'en récupéréer les valeurs approximativement 10 fois plus vite qu'avec la fonction de Matlab. Pour $(x,p) \in \R\times\N$, 
+De même, par souci de rapidité, nous n'utilisons pas non plus la fonction \textit{legendreP} intégrée à Matlab pour récupérer la valeur des polynômes de Legendre. Nous procédons aussi avec une formule de récurrence, ceci nous ayant permis d'en récupérer les valeurs approximativement 10 fois plus vite qu'en utilisant \textit{legendreP}. Pour $(x,p) \in \R\times\N$, 
 
 \begin{equation}
 	P_{p+1}(x) =  \frac{2p+1}{p+1}xP_{p}(x) - \frac{p}{p+1}P_{p-1}(x) 
 \end{equation}
 
 
-Enfin nous noterons aussi que pour réaliser des calculs rapides en vectorialisant au maximum les opérations effectuées nous avons beacoup utilisé la fonction \textit{bsxfun(@times, ..., ...)} du logiciel.
+Enfin nous noterons aussi que pour réaliser des calculs rapides en vectorisant au maximum les opérations effectuées nous avons beaucoup utilisé la fonction \textit{bsxfun(@times, ..., ...)} du logiciel.
 
 
 
@@ -270,12 +270,12 @@ Pour tester nos codes nous avons utilisé le cas test $\rv = 0$ et $\rv_0 = \xv 
 
 \begin{equation}
 \begin{split}
-G(\xv,\yv) = \frac{ik}{4\pi}\sum_{p=0}^{L}{} (2p+1)i^{p}h_p^{(1)}(k|\rv_0|)  \\
+G(\xv,\yv) = \frac{ik}{4\pi}\sum_{p=0}^{L_G}{} (2p+1)i^{p}h_p^{(1)}(k|\rv_0|)  \\
  \times\int_{S^{2}}P_p(\cos(\svh, \rv_0))d\svh 
 \end{split}
 \end{equation}
 
-Cependant pour $p\in\bbrac{0,L}$ comme notre quadrature intègre exactement les polynomes de degrés inférieur ou égal à $2L+1$ et d'après l'ortogonalité des polynômes de Legendre, il vient, 
+Cependant pour $p\in\bbrac{0,L}$ comme notre quadrature intègre exactement les polynômes en $\cos{\theta}$ (c.f. Q.3) de degrés inférieur ou égal à $2L_G+1$, d'après l’orthogonalité des polynômes de Legendre, il vient, 
 
 \begin{equation}
 G(\xv,\yv) = ikh^{(1)}_{0}(k|\rv_0|)
@@ -287,9 +287,9 @@ Nous avons un résultat analytique très pratique pour vérifier le code. Ceci n
 
 \vspace*{10pt}
 
-\subsection*{3. Resultats}
+\subsection*{3. Résultats}
 
-Pour nous assurer du bon fonctionnement de notre code nous avons calculé différentes valeurs de la fonction de green en différents points en faisant varier les différents paramètres du probleme en Tab.~ref{tab:Q5}. Nous notons $G_{\simeq}(\xv, \yv)$ l'approximation de la fonction de Green calculée aux points $\xv$ et $\yv$.  Nous introduisons aussi 
+Pour nous assurer du bon fonctionnement de notre code nous avons calculé différentes valeurs de la fonction de green en différents points en faisant varier les différents paramètres du problème en Tab.~\ref{tab:Q5}. Nous notons $G_{\simeq}(\xv, \yv)$ l'approximation de la fonction de Green calculée aux points $\xv$ et $\yv$.  Nous introduisons aussi 
 
 
 \begin{align}
@@ -308,12 +308,12 @@ Il s'agit d'une grandeur représentant l'erreur relative de notre calcul. Elle p
 
 \begin{table}[H]
 \centering
-\begin{tabular}{m{1.5cm} m{0.5cm} | m{2cm} m{2cm} | m{3.5cm} m{3.5cm} m{1cm}} 
+\begin{tabular}{m{1cm} m{0.5cm} | m{2cm} m{2cm} | m{3.5cm} m{3.5cm} | m{1cm}} 
    \hline
-    $k$ (m$^{-1}$)& $L_G$ & $\|\xv-\xv_0\|_{2}/L$ & $\|\yv-\yv_0\|_{2}/L$ & $G(\xv, \yv)$ & $G_{\simeq}(\xv,\yv)$ & $\varepsilon$ (\%) \\
+    $kL$ & $L_G$ & $\|\xv-\xv_0\|_{2}/L$ & $\|\yv-\yv_0\|_{2}/L$ & $G(\xv, \yv)$ & $G_{\simeq}(\xv,\yv)$ & $\varepsilon$ (\%) \\
     \toprule
     \toprule
-    4$\pi$ & $2$ & $0$ & $0$ & $-0.7757+0.2548i$ & $-0.7757+0.2548i$ & $10^{-9}$ \\ \hline
+    4$\pi$ & $2$ & $0$ & $0$ & $-0.7757+0.2548i$ & $-0.7757+0.2548i$ & $10^{-14}$ \\ \hline
 	4$\pi$ & $5$ & $0.7348$ & $0$ & $+0.8619+1.4826i$ & $+0.4170+0.8020i$ & $47$ \\
 	4$\pi$ & $5$ & $0.8124$ & $0$ & $+1.9460+0.2434i$ & $+1.1706+0.1575i$ & $39$ \\
 	4$\pi$ & $5$ & $0$ & $0.7348$ & $+0.8619+1.4826i$ & $+0.4170+0.8020i$ & $47$ \\ \hline
@@ -336,11 +336,11 @@ Il s'agit d'une grandeur représentant l'erreur relative de notre calcul. Elle p
 
 \begin{multicols}{2}
 
-Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ nous obtenons un resultat exact même pour $L_G=2$ qui est la plus petite valeur accessible dans notre code, ce qui correspond à notre cas test développé en sous-section 2.\\
+Nous pouvons commencer par remarquer que dans le cas $\xv=\xv_0$ et $\yv=\yv_0$ nous obtenons un résultat exact même pour $L_G=2$ qui est la plus petite valeur accessible dans notre code, ce qui correspond à notre cas test développé en sous-section 2.\\
 \indent
-La variation de $\xv$, $\xv_0$, $\yv$ et $\yv_0$ aux autres paramètres fixés nous apprend que le résultat dépend modérément de la direction de $\xv$ (resp. $\yv$) par rapport à $\xv_0$ (resp. $\yv_0$) mais que ce sont avant tous les normes des différences qui sont importantes. De plus $k$ a aussi une influence et ce sont plus exactement les produits $k\|\xv-\xv_0\|_{2}/L$ et $k\|\yv-\yv_0\|_{2}/L$ qui jouent finalement un rôle important. \\
+La variation de $\xv$, $\xv_0$, $\yv$ et $\yv_0$ aux autres paramètres fixés nous apprend que le résultat dépend modérément de la direction de $\xv$ (resp. $\yv$) par rapport à $\xv_0$ (resp. $\yv_0$) mais que ce sont avant tous les normes des différences qui sont importantes. De plus $k$ a aussi une influence et le produit $k\|\xv_0-\yv_0\|_{2}$ joue aussi un rôle important. \\
 \indent
-Lorsque l'on regare l'influence de $L_G$, plus il est numériquement grand et plus le résltat est précis, comme nous pouvions nous y attendre, jusqu'à un certain point où l'on commence à avoir divergence à cause des fonctions de Hankel. En conclusion suivant la différence maximale autorisée entre $\xv$ et $\xv_0$ (resp. $\yv$ et $\yv_0$) il sera necessaire d'avoir un $L_G$ plus ou moins grand pour avoir une bonne précision. En revanche pour savoir quel sera le bon $L_G$ à choisir on se reportera à l'étude donnant la figure \refig{Q6b}. 
+En effet, lorsque l'on regarde l'influence de $L_G$ seule, plus il est numériquement grand et plus le résultat est précis, comme nous pouvions nous y attendre, jusqu'à un certain point où l'on commence à avoir divergence à cause des fonctions de Hankel. Ainsi suivant la différence maximale autorisée entre $\xv$ et $\xv_0$ (resp. $\yv$ et $\yv_0$) il sera nécessaire d'avoir un $L_G$ plus ou moins grand pour avoir une bonne précision. Nous avons noté en pratique qu'il est préférable de garder $\|\xv-\xv_0\|_{2}$ et $\|\yv-\yv_0\|_{2}$ proche de $ \sim \|\xv_0 - \yv_0\|_{2}$ pour ne pas se heurter au problème de divergence et avoir une bonne précision. On veillera aussi à ce que $k\|\xv_0-\yv_0\|_{2}$ soit suffisamment faible pour pouvoir utiliser une valeur de $L_G$ optimale faible. Plus précisément, pour savoir quel sera le bon $L_G$ à choisir on se reportera à une étude similaire à celle donnant la figure \refig{Q6b}.
 
 \vspace*{11pt}
 
@@ -357,45 +357,49 @@ Nous avons réalisé le partitionnement (c.f. \refig{Q6}), correspondant à un n
 \item des coordonnées du centre de chaque boite. 
 \end{itemize}
 
+
+
+Même si l'on ne prend pas en compte cette étape dans le temps de calcul du produit matrice vecteur il est bon d'essayer de ne pas la rendre trop longue. Pour ce faire nous n'avons réalisé pour la création des boites de la partition et l'extraction des nœuds qui y appartiennent, seulement des boucles sur, au maximum, les boites et jamais sur les nœuds qui sont bien plus nombreux. De plus pour ne pas surcharger la mémoire et comme beaucoup des tableaux de \textbf{partition} sont creux nous avons utilisé une définition en tant que \textit{sparse} de ces matrices/tableaux. \\
+
+
+
+
 \vspace*{22pt}
-
-\begin{figure}[H]
-  \begin{center}
-  \includegraphics[width=0.95\columnwidth]{Q6.pdf}
-  \vspace*{-11pt}
-  \caption{Représentation de deux paquets deux points appartenants à deux boites de taille $d$ différentes en sortie de notre algorithme de partition (représentés en bleu et en noir). Celle en bleu contient moins de points car elle ne contient que des éléments du haut de la boite alors que celui en noir regroupe des points sur trois faces. $f=2c/L$, $n_\lambda = 10$, $d=0.3\lambda$.}
-  \label{fig:Q6}
-  \end{center}
-\end{figure}
-
-Même si l'on ne prend pas en compte cette étape dans le temps de calcul du produit matrice vecteur il est bon d'essayer de ne pas la rendre trop longue. Pour ce faire nous n'avons réalis,é pour la création des boites de la partition et l'extraction des noeuds qui y appartiennent, que des boucles sur au maximum le nombre de boite et jamais sur le nombre de noeuds total qui est bien plus important. De plus pour ne pas surcharger la mémoire et comme beacoup des tableaux de \textbf{partition} sont creux nous avons utilisé une définition en tant que \textit{sparse} de ces matrices/tableaux. \\
-
-
 
 
 
 \subsection*{2. Algorithme FMM}
 
-Après avoir réalisé le partitionnement nous nous sommes attaqués à l'écriture totale du code de résolution FMM à un noveau en réutilisant toutes les fonctions déjà écrites. Nous pouvons résumé ici la structure de l'algorithme final de la sorte : 
+Après avoir réalisé le partitionnement nous nous sommes attaqués à l'écriture totale du code de résolution FMM à un niveau en réutilisant toutes les fonctions déjà écrites. Nous pouvons résumé ici la structure de l'algorithme final de la sorte : 
 
 \begin{algorithm}[H]
 	\begin{algorithmic}[1]
 		\State Initialisation des données du problèmes
         \State Maillage du domaine
         \State Initialisation des points de quadrature
-        \State Creation des partitions
-        \State Calcul du produit pour les noeuds non voisins
+        \State Création des partitions
+        \State Calcul du produit pour les nœuds non voisins
         \State Calcul des contributions des voisins
 	\end{algorithmic}
 \end{algorithm}
     
+%\vspace*{22pt}
 
-\vspace*{22pt}
+
+
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[width=0.95\columnwidth]{Q6.pdf}
+  \vspace*{-11pt}
+  \caption{Représentation de deux paquets deux points appartenant à deux boites (i.e. partitions) cubiques de taille $d$ différentes en sortie de notre algorithme de partitionnement (représentés en bleu et en noir). Celle en bleu contient moins de points car elle ne contient que des éléments du haut de la boite alors que celui en noir regroupe des points sur trois faces. $f=2c/L$, $n_\lambda = 10$, $d=0.3\lambda$.}
+  \label{fig:Q6}
+  \end{center}
+\end{figure}
 
 \subsection*{3. Résultats}
 
 
-Nous avons regardé l'erreur et norme $\| \text{ . }\|_{2}$ et en norme $\| \text{ . }\|_{\infty}$, entre le résultat de l'algorithme FMM et le résultat par le produit matrice vecteur classique en fonction de $L_G$. Nous notons plus précisément aussi $\G_{\simeq}$ la matrice associé comme en \refeq{green} à la fonction de Green précédemment définie $G_{\simeq}$ et de plus : 
+Nous avons regardé l'erreur en norme $\| \text{ . }\|_{2}$ et en norme $\| \text{ . }\|_{\infty}$, entre le résultat de l'algorithme FMM et le résultat par le produit matrice vecteur classique en fonction de $L_G$. Nous notons plus précisément aussi $\G_{\simeq}$ la matrice associée comme en \refeq{green} à la fonction de Green précédemment définie $G_{\simeq}$ ainsi que : 
 
 \begin{equation}
 \eta_{2} = \frac{\| (\G - \G_{\simeq})\rhov \|_{2}}{\| \G\rhov \|_{2}} \quad \text{et} \quad 
@@ -411,14 +415,14 @@ Nous remarquons qu'il y a un point de minimum. Avec la formule du cours nous avo
 	L_G = \sqrt{3}kd + 7.5\log{\(\sqrt{3}kd+\pi\)}
 \end{equation}
 
-Nous trouvons qu'alors $L_G=17$ au point. Sur notre graphique nous remarquons un minimum en $L_G=20$ ce qui est convenablement proche. Avec des erreurs relatives qui sont alors très faibles. 
+Nous trouvons qu'alors $L_G=17$ au minimum avec cette formule. Sur notre graphique nous remarquons un minimum en $L_G=20$ ce qui est convenablement proche. Avec des erreurs relatives qui sont alors faibles. 
 
 
 \begin{figure}[H]
   \begin{center}
   \includegraphics[width=0.95\columnwidth]{Q6b_2.pdf}
   \vspace*{-11pt}
-  \caption{Evolution des écarts $\eta_2$ (points bleus) et $\eta_{\infty}$ (croix rouges) en fonction de $L_G$ représentant le nombre de points de quadrature et échelle logarithmique. $f=4c/L$, $n_\lambda =10$ et $d=0.3\lambda$ ce qui donne $N = 4002$ et un nombre de $162$ partitions}
+  \caption{Évolution des écarts relatifs $\eta_2$ (points bleus) et $\eta_{\infty}$ (croix rouges) en fonction de $L_G$, représentant le nombre de points de quadrature, en échelle logarithmique. $f=4c/L$, $n_\lambda =10$ et $d=0.3\lambda$ ce qui donne $N = 4002$ et un nombre de $162$ partitions}
   \label{fig:Q6b}
   \end{center}
 \end{figure}
@@ -427,35 +431,37 @@ Nous trouvons qu'alors $L_G=17$ au point. Sur notre graphique nous remarquons un
 
 
 
-\vspace*{22pt}
+\vspace*{11pt}
 
 \section*{Question 7}
 
 
-Nous montrons en \refig{Q7} l'évolution du temps de calcul $\tau_{FMM}$ par la méthode FMM et $\tau_{class}$ par la méthode classique du produit matrice vecteur en fonction de $N$. Pour augmenter le nombre de points nous fixons $n_\lambda = 10$ et nous faisons varier la fréquence entre $0.2c/L$ et $5c/L$. Nous fixons $d=0.5\lambda$ à chaque itération pour cette figure et $L=10$ afin d'avoir une précision correcte sans pour autant trop alourdir le calcul déjà long que sa conception nécessite. En effet à $N \sim 2000$ le code met déjà 1 minute pour s'executer.
+Nous montrons en \refig{Q7} l'évolution du temps de calcul $\tau_{FMM}$ par la méthode FMM (correspondant au temps des étapes 5 et 6 seulement du pseudo code présenté en question précédente) et $\tau_{class}$ par la méthode classique du produit matrice vecteur en fonction de $N$. Pour augmenter le nombre de points nous fixons $n_\lambda = 10$ et nous faisons varier la fréquence entre $0.2c/L$ et $5c/L$. Nous fixons $d=0.5\lambda$ à chaque itération pour cette figure et $L=10$ afin d'avoir une précision correcte (nous avons noté $\eta_{2/\infty} < 10^{-4}$ pour l'ensemble des points calculés) sans pour autant alourdir le calcul qu'elle nécessite. 
 
 \begin{figure}[H]
   \begin{center}
   \includegraphics[width=0.95\columnwidth]{Q7.pdf}
   \vspace*{-11pt}
-  \caption{Evolution du temps de calcul du produit matrice vecteur par la méthode classique $\tau_{class}$ (rouge) et par la méthode FMM $\tau_{FMM}$ (bleu) avec $N$. Les courbes vertes et noires correspondents aux modélisations en loi de puissance réalisés avec Matlab.}
+  \caption{Évolution du temps de calcul du produit matrice vecteur par la méthode classique $\tau_{class}$ (rouge) et par la méthode FMM $\tau_{FMM}$ (bleu) avec $N$. Les courbes vertes et noires correspondants aux modélisations en loi de puissance réalisés avec Matlab.}
   \label{fig:Q7}
   \end{center}
 \end{figure}
 \vspace*{-22pt}
 
-Nous remarquons que, même si cela ne parait pas évident à cause des echelles différentes mises en jeu sur la figure, la courbe de $\tau_{FMM}$ décroit moins vite que celle de $\tau_{class}$. Afin de vérifier cette tendance sont représentés en en jaune et vert les courbes de meilleures interpolations avec les équations suivantes : $\tau_{FMM} \simeq 1.63\times10^{-4} \times N^{1.55}$ (s) et $\tau_{class} \simeq 1.97\times10^{-9}  N^{1.95}$ (s). Même en utilisant l'option \textit{-singleCompThread} de Matlab la complexité du produit classique est légérement en dessous de la complexité théorique ceci peut s'expliquer par le fait qu'il nous aurait fallu peut être plus de pointsà N plus grand pour ne prendre en compte que le comportmeent asymptotique. Malgré cela nous ne somme pas loin de la complexité théorique et ceci nous permet de voir que notre méthode FMM se rapproche aussi de sa complexité théorique en $O(N^{3/2})$. \\
+Nous remarquons que, même si cela ne parait pas évident à cause des échelles différentes mises en jeu sur la figure, la courbe de $\tau_{FMM}$ croit moins vite que celle de $\tau_{class}$. Afin de vérifier cette tendance sont, représentés en en jaune et vert les courbes de meilleures interpolations en puissance ayant les équations suivantes : $\tau_{FMM} \simeq 1.63\times10^{-4} \times N^{1.55}$ (s) et $\tau_{class} \simeq 1.97\times10^{-9}  N^{1.95}$ (s). Même en utilisant l'option \textit{-singleCompThread} de Matlab la complexité du produit classique est légèrement en dessous de la complexité théorique. Ceci peut s'expliquer par le fait qu'il nous aurait fallu peut être plus de point à N plus grand pour ne prendre en compte que le comportement asymptotique, mais aussi par le fait que Matlab donne parfois des résultats dans le calcul de temps écoulé qui fluctuent légèrement. Malgré cela nous ne sommes pas loin de la complexité théorique et ceci nous permet de voir que notre méthode FMM se rapproche aussi de sa complexité théorique en $O(N^{3/2})$. \\
 \indent
-Cependant, nous observons une courbe qui évolue par \textit{paliers}. Sachant que sur chaque \textit{palier} le nombre de partition est constant nous pouvons en conclure qu'en augmentant la fréquence, nous rajoutons par étapes des partitions du maillage et ainsi nous obtenons une augmentation par sauts du temps. \\
+Nous observons une courbe qui évolue par \textit{paliers}. Sachant que sur chaque \textit{palier} le nombre de partition est constant nous pouvons en conclure qu'en augmentant la fréquence, nous rajoutons par étapes des nouvelles partitions du maillage et ainsi nous obtenons une augmentation par sauts du temps (ce qui est en réalité attendu puisque le code effectue des boucles de taille du nombre de partitions dans son fonctionnement).\\
 
-\indent
-Nous avons aussi pu remarquer que pour atteindre les 5 minutes d'exectution de code avec $L_G = 15$ il nous faut environ $N \sim 9000$. Nous remarquons aussi que l'évolution en palier demande de bien maitriser le découpage et la répartition des partitions pour ne pas perdre de temps dès que l'on augmente le nombre de points. En effet pour un maximum de 9000 points avec $L_G = 15$ nous avons observé une loi de puissance en $O(N^{1.7})$ ce qui reste tout de même mieux que la loi en $O(N^{2})$.
+\noindent
+\textbf{{\small Remarque :}} \\
+Nous avons aussi pu remarquer lors d'une seconde étude similaire mais avec $L_G = 15$ (donnant une meilleure précision du résultat) il nous faut environ $N \sim 9000$ pour atteindre les 5 minutes d’exécution du code et $N \sim 3000$ pour atteindre une minute. L'évolution en \textit{paliers} demande de bien maîtriser la création des partitions pour optimiser le temps dès que l'on augmente le nombre de points. Finalement, dans ce cas, en ayant réalisé les calculs jusqu'à $N=9002$ points avec $L_G = 15$ nous avons observé une loi de puissance en $O(N^{1.7})$. Ceci est moins bon que précédemment même si, tout de même mieux qu'un comportement en $O(N^{2})$.
 
 
-\vspace*{22pt}
+
+\vspace*{11pt}
 \section*{Question 8}
 
-Nous pouvons remarquer que bien que malgrès une complexité plus avantageuse et nos effort pour le rendre le plus rapide possible ce nouveau algorithme met plus de temps à s'executer que le produit réalisé classiquement pour le nombre de points (qui reste relativement faible) que nous aons pu tester. En effet nous avons pour $N = 6012$, un temps $\tau_{FMM} = 108$ s et $\tau_{class} = 0.05$ s. Nous pouvons dire, en comparant les deux courbes de la question précédente  et de la question 2 qu'il faudrait atteindre $N \sim 10^{7}$ pour que l'utilisation de la FMM mono-niveau soit, dans ce cas, utile si l'on prend en compte le temps d'assemblage de la matrice dans la méthode classique. Ce nombre est trop malheureusement important et il serait necessaire de réussir à optimiser le temps d'éxecution du code de manière générale ou de passer par un algorithme multi-niveaux.
+Nous pouvons remarquer que malgré une complexité plus avantageuse et nos efforts pour le rendre le plus rapide possible ce nouvel algorithme FMM met plus de temps à s’exécuter que le produit réalisé classiquement pour le nombre de points (qui reste relativement faible) que nous avons pu tester. En effet nous avons en \refig{Q7}, pour $N = 6012$, un temps $\tau_{FMM} = 108$ s et $\tau_{class} = 0.05$ s. Nous pouvons dire, en comparant les deux courbes de la question précédente et celle de la question 2 que, si l'on prend en compte le temps d'assemblage de la matrice dans la méthode classique, il faudrait atteindre $N \sim 10^{8}$ pour que l'utilisation de la FMM mono-niveau soit utile. Or cela implique des temps d'exécution inimaginables de $\sim 10^{8}$ s. Il serait alors nécessaire de réussir à optimiser encore le temps d’exécution global du code FMM, de passer par un algorithme multi-niveaux, d'utiliser une machine plus puissante, de changer de langage de programmation pour un langage compilé, ou de paralléliser le calcul.
 
 
 

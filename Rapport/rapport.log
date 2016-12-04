@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  2 DEC 2016 21:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.18)  4 DEC 2016 18:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1290,60 +1290,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 352--353
 
  []
 
-<figures/Q6.pdf, id=600, 244.915pt x 154.5775pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
+
+ []
+
+<figures/Q6.pdf, id=601, 244.915pt x 154.5775pt>
 File: figures/Q6.pdf Graphic file (type pdf)
  <use figures/Q6.pdf>
-Package pdftex.def Info: figures/Q6.pdf used on input line 364.
+Package pdftex.def Info: figures/Q6.pdf used on input line 392.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 405--406
-
- []
-
-<figures/Q6b_2.pdf, id=603, 244.915pt x 154.5775pt>
+<figures/Q6b_2.pdf, id=604, 244.915pt x 154.5775pt>
 File: figures/Q6b_2.pdf Graphic file (type pdf)
  <use figures/Q6b_2.pdf>
-Package pdftex.def Info: figures/Q6b_2.pdf used on input line 419.
+Package pdftex.def Info: figures/Q6b_2.pdf used on input line 423.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
-[4 <./figures/Q6.pdf>] <figures/Q7.pdf, id=1048, 244.915pt x 154.5775pt>
+[4 <./figures/Q6.pdf>] <figures/Q7.pdf, id=1049, 244.915pt x 154.5775pt>
 File: figures/Q7.pdf Graphic file (type pdf)
 
 <use figures/Q7.pdf>
-Package pdftex.def Info: figures/Q7.pdf used on input line 439.
+Package pdftex.def Info: figures/Q7.pdf used on input line 443.
 (pdftex.def)             Requested size: 238.38506pt x 150.45888pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--450
+Underfull \hbox (badness 10000) in paragraph at lines 451--454
 
  []
 
-
+[5 <./figures/Q6b_2.pdf> <./figures/Q7.pdf>] 
 AED: lastpage setting LastPage
-[5 <./figures/Q6b_2.pdf> <./figures/Q7.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 472.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 472.
- (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 472.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 472.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 478.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 478.
+(./rapport.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 478.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 478.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 472.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 478.
  ) 
 Here is how much of TeX's memory you used:
- 19411 strings out of 493089
- 321995 string characters out of 6134841
- 524232 words of memory out of 5000000
- 22548 multiletter control sequences out of 15000+600000
- 25065 words of font info for 71 fonts, out of 8000000 for 9000
+ 19413 strings out of 493089
+ 322016 string characters out of 6134841
+ 526278 words of memory out of 5000000
+ 22549 multiletter control sequences out of 15000+600000
+ 25841 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,17n,45p,10515b,540s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -1368,23 +1367,24 @@ ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/cm-super/sfcc0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/cm-super/sfrm1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/cm-super/sfti0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
-/cm-super/sfti0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/c
-m-super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/stm
-aryrd/stmary10.pfb>
-Output written on rapport.pdf (5 pages, 778102 bytes).
+t/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/cm-super/sfcc0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/cm-super/sfti0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/c
+m-super/sfti0900.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-
+super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/stmar
+yrd/stmary10.pfb>
+Output written on rapport.pdf (5 pages, 792917 bytes).
 PDF statistics:
- 1245 PDF objects out of 1440 (max. 8388607)
- 1141 compressed objects within 12 object streams
+ 1251 PDF objects out of 1440 (max. 8388607)
+ 1146 compressed objects within 12 object streams
  50 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
